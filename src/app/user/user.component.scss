@@ -1,0 +1,13 @@
+:host { // die komponente selbst als container
+  display: block;
+  background-color: greenyellow;
+
+  ::ng-deep h1 { // ignoriere das mit den attributen auf h1
+    color: red;
+  }
+}
+
+
+button {
+  background-color: red;
+}

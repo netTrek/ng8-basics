@@ -1,3 +1,16 @@
 <p>user works!</p>
-<h1>{{name}}</h1>
+<h1>Benutzername: {{name}}!</h1>
+<div [style.color]="fontColor">{{html}}</div>
+<div [innerHTML]="html" aria-label="beschreibungstext" [attr.role]="btnRole"></div>
+<!--
+bitte vermeiden
+<h2>Benutzername: {{getName()}}!</h2>
+-->
+<img src="assets/img/{{filename}}"
+     [style.width.%]="catSize"
+     alt="nie vergessen">
+<!--
+<img src="assets/img/{{filename}}" alt="nie vergessen">
+<img [src]="'assets/img/'+filename" alt="123">
+-->
 <button (click)="chgName()">click me</button>
