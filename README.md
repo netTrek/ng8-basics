@@ -1,5 +1,12 @@
 # GfK2019
 
+
+## proxy
+- npm config set proxy http://PROXYURL
+- npm config set https-proxy http://PROXYURL
+
+
+## Setup
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
 
 ## Development server
