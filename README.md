@@ -1,6 +1,22 @@
 # GfK2019
 
 
+## comp erstellen
+ ng g m user --module app
+ 
+- --routing : zusätzliches Routing Modul erstellen
+- --module erstelltes modul in einem anderen importieren  
+
+## comp erstellen
+ ng g c user/user --skip-tests --flat 
+
+- --skip-tests ohne Test Datei erstellen
+- --flat ohne Extra Container - Ordner (nur bei Modul. Rep)
+- --export damit im Modul exportiert
+
+
+
+ 
 ## proxy
 - npm config set proxy http://PROXYURL
 - npm config set https-proxy http://PROXYURL

@@ -12,13 +12,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "gfk",
+      ["gfk","app"],
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "gfk",
+      ["gfk","app"],
       "kebab-case"
     ],
     "import-blacklist": [
