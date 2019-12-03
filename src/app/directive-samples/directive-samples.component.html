@@ -1,0 +1,50 @@
+<p>directive-samples works!</p>
+
+<ul>
+  <li>index</li>
+  <li>odd</li>
+  <li>even</li>
+  <li>first</li>
+  <li>middle</li>
+  <li>last</li>
+  <li>count</li>
+  <!--<li *ngFor="let val of [1,2,3,4,5]; index as i">#{{i}} := {{val}}</li>-->
+  <li *ngFor="let val of [1,2,3,4,5]; even as e; odd as o"
+    [class.even]="e"
+    [class.odd]="o"
+  >#{{e}}#{{o}}  {{val}}</li>
+</ul>
+
+
+<button (click)="showDesc = !showDesc">toogle desc</button>
+
+<span *ngIf="showDesc; else elseDescBlock">desc shown</span>
+<ng-template #elseDescBlock>
+  <span>desc hidden</span>
+</ng-template>
+
+<!--
+<input type="text" #inp>
+<hr>
+<p>{{inp.value | json}}</p>
+<hr>
+-->
+
+
+<ng-template [ngIf]="showDesc">
+  <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquid consequatur culpa dolorum minima non obcaecati, odio possimus repellendus sapiente sed sit, voluptatem! A deserunt excepturi iure sed vero, voluptatibus?</div>
+  <img src="assets/img/cat1.jpeg" alt="hello">
+</ng-template>
+
+
+
+
+
+<!--
+
+<div *ngIf="showDesc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A commodi cupiditate deserunt dicta harum hic id inventore itaque magni maxime molestias omnis provident quo reiciendis saepe sit, suscipit ut voluptas?</div>
+
+
+<img *ngIf="showDesc" src="assets/img/cat1.jpeg" alt="hello">
+
+-->

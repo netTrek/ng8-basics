@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { UserModule } from './user/user.module';
 import { DeleteMeComponent } from './delete-me/delete-me.component';
 import { UtilsModule } from './utils/utils.module';
+import { DirectiveSamplesModule } from './directive-samples/directive-samples.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { UtilsModule } from './utils/utils.module';
     BrowserModule,
     AppRoutingModule,
     UserModule,
-    UtilsModule
+    UtilsModule,
+    DirectiveSamplesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

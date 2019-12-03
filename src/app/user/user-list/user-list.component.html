@@ -4,9 +4,9 @@
 -->
 
 <div>selected User: {{selectedUsr | json}}</div>
-<gfk-user-list-item
-  [user]="userList[0]"
-  [selected]="userList[0] === selectedUsr"
+<gfk-user-list-item *ngFor="let user of userList"
+  [user]="user"
+  [selected]="user === selectedUsr"
   (selectUsr)="selectUser($event)"
 >
 </gfk-user-list-item>
