@@ -1,12 +1,27 @@
-<h1>My User List</h1>
-<h2>selected User: {{selectedUsr}}</h2>
+<h1>My User List</h1> <!--Eltern-->
+<!--
+<gfk-user-list-item>Saban</gfk-user-list-item>
+-->
+
+<div>selected User: {{selectedUsr | json}}</div>
 <gfk-user-list-item
-  (click)="selectedUsr='saban'"
-  [class.selected]="selectedUsr==='saban'">
-  Saban
+  [user]="userList[0]"
+  [selected]="userList[0] === selectedUsr"
+  (selectUsr)="selectUser($event)"
+>
 </gfk-user-list-item>
+<!--
+
 <gfk-user-list-item
-  (click)="selectedUsr='peter'"
-  [class.selected]="selectedUsr==='peter'">
-  Peter
+  [user]="userList[1]"
+  [selected]="userList[1] === selectedUsr"
+  (selectUsr)="selectUser($event)"
+>
 </gfk-user-list-item>
+-->
+
+<!--
+
+  [class.selected]="selectedUsr==='saban'"
+
+-->

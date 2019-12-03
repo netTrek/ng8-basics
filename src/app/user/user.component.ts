@@ -20,7 +20,6 @@ export class UserComponent implements OnInit {
   fontColor = 'red';
   catSize = 50;
   html = `hello <strong>world</strong>! <script>alert('hab dich .....')</script>`;
-  private intervalId: number;
   currentClass = 'red';
   selected: string;
 
@@ -28,13 +27,6 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.intervalId = window.setInterval( () => {
-      this.catSize -= 10;
-      console.log ( this.catSize );
-      if ( this.catSize === 0) {
-        window.clearInterval( this.intervalId );
-      }
-    }, 100);
   }
 
   chgName() {
