@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 } )
 export class AppComponent {
   title = 'GfK2019';
+
+  machWasSchlimmes() {
+    console.log ( 'hepüpa' );
+  }
 }

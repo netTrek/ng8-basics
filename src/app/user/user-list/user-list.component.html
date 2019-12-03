@@ -8,3 +8,8 @@
   [ngClass]="{even: e, odd: o}"
 >
 </gfk-user-list-item>
+
+<button *ngIf="selectedUsr"
+        gfkDangerBtn="Willst du {{selectedUsr.firstname}} wirklich löschen?"
+        (confirmed)="deleteSelectedUsr()"
+>delete selected</button>
