@@ -1,0 +1,12 @@
+<h1>My User List</h1>
+<h2>selected User: {{selectedUsr}}</h2>
+<gfk-user-list-item
+  (click)="selectedUsr='saban'"
+  [class.selected]="selectedUsr==='saban'">
+  Saban
+</gfk-user-list-item>
+<gfk-user-list-item
+  (click)="selectedUsr='peter'"
+  [class.selected]="selectedUsr==='peter'">
+  Peter
+</gfk-user-list-item>

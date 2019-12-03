@@ -21,6 +21,8 @@ export class UserComponent implements OnInit {
   catSize = 50;
   html = `hello <strong>world</strong>! <script>alert('hab dich .....')</script>`;
   private intervalId: number;
+  currentClass = 'red';
+  selected: string;
 
   constructor() {
   }
@@ -47,4 +49,13 @@ export class UserComponent implements OnInit {
     console.log ( 'getName' );
     return this.name;
   }*/
+  toggleClass() {
+    this.currentClass =
+      this.currentClass === 'red' ?
+      'blue' : 'red';
+  }
+
+  select( name: string ) {
+    this.selected = name;
+  }
 }

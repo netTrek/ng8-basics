@@ -1,16 +1,38 @@
 <p>user works!</p>
+
+<gfk-user-list></gfk-user-list>
+<!--
+
+<hr>
 <h1>Benutzername: {{name}}!</h1>
+<p>{{currentClass}}</p>
+<div class="red bold">red class</div>
+<div class="blue bold" [class]="currentClass">{{currentClass}} class</div>
+
+
+{{selected}}
+<div (click)="select('saban')"
+     [class.selected]="selected==='saban'">saban
+</div>
+<div (click)="select('peter')"
+     [class.selected]="selected==='peter'">peter
+</div>
+
+<button (click)="toggleClass()">toggle</button>
+
+-->
+
+<!--
 <div [style.color]="fontColor">{{html}}</div>
 <div [innerHTML]="html" aria-label="beschreibungstext" [attr.role]="btnRole"></div>
-<!--
 bitte vermeiden
 <h2>Benutzername: {{getName()}}!</h2>
 -->
+<!--
 <img src="assets/img/{{filename}}"
      [style.width.%]="catSize"
      alt="nie vergessen">
-<!--
 <img src="assets/img/{{filename}}" alt="nie vergessen">
 <img [src]="'assets/img/'+filename" alt="123">
--->
 <button (click)="chgName()">click me</button>
+-->
