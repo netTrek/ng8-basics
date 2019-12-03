@@ -1,27 +1,10 @@
-<h1>My User List</h1> <!--Eltern-->
-<!--
-<gfk-user-list-item>Saban</gfk-user-list-item>
--->
 
-<div>selected User: {{selectedUsr | json}}</div>
-<gfk-user-list-item *ngFor="let user of userList"
+<h3 *ngIf="selectedUsr">selected User: {{selectedUsr.firstname}} {{selectedUsr.lastname}}</h3>
+<gfk-user-list-item
+  *ngFor="let user of userList; even as e; odd as o"
   [user]="user"
   [selected]="user === selectedUsr"
   (selectUsr)="selectUser($event)"
+  [ngClass]="{even: e, odd: o}"
 >
 </gfk-user-list-item>
-<!--
-
-<gfk-user-list-item
-  [user]="userList[1]"
-  [selected]="userList[1] === selectedUsr"
-  (selectUsr)="selectUser($event)"
->
-</gfk-user-list-item>
--->
-
-<!--
-
-  [class.selected]="selectedUsr==='saban'"
-
--->

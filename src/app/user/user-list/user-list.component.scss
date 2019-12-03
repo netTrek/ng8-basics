@@ -1,3 +1,18 @@
 .selected {
   font-weight: bold;
 }
+
+gfk-user-list-item {
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+.even {
+  background-color: #00d200;
+}
+
+.odd {
+  background-color: #00ed00;
+}
