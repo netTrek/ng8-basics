@@ -9,7 +9,13 @@
 >
 </gfk-user-list-item>
 
-<button *ngIf="selectedUsr"
+<button *ngIf="selectedUsr; else addUserBlock"
         gfkDangerBtn="Willst du {{selectedUsr.firstname}} wirklich löschen?"
         (confirmed)="deleteSelectedUsr()"
 >delete selected</button>
+
+<ng-template #addUserBlock>
+  <input type="text" placeholder="firstname" #firstname>
+  <input type="text" placeholder="lastname" #lastname>
+  <button (click)="addUser ( firstname.value, lastname.value )">add</button>
+</ng-template>

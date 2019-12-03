@@ -32,4 +32,9 @@ export class UserListComponent implements OnInit {
     this.userList.splice( this.userList.indexOf( this.selectedUsr) , 1 );
     this.selectedUsr = undefined;
   }
+
+  addUser( firstname: string, lastname: string ) {
+    this.userList.push( {firstname, lastname } );
+    this.selectedUsr = this.userList.slice( -1 )[0];
+  }
 }
