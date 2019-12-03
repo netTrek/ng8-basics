@@ -34,7 +34,13 @@ export class UserListComponent implements OnInit {
   }
 
   addUser( firstname: string, lastname: string ) {
-    this.userList.push( {firstname, lastname } );
-    this.selectedUsr = this.userList.slice( -1 )[0];
+    const usr = { firstname, lastname };
+    this.userList.push( usr );
+    this.selectedUsr = usr;
+  }
+
+  updateUser( firstname: string, lastname: string ) {
+    this.selectedUsr.firstname = firstname;
+    this.selectedUsr.lastname = lastname;
   }
 }

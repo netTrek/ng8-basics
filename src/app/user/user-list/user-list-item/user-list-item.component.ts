@@ -46,15 +46,15 @@ export class UserListItemComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges( changes: SimpleChanges ): void {
-    if ( changes.hasOwnProperty('selected') ) {
-      const userChg: SimpleChange = changes.selected;
-      if ( userChg.firstChange ) {
-        console.log ( 'erstes mal übermittelt' );
-      } else {
-        console.log ( `update von ${userChg.previousValue} zu ${userChg.currentValue}` );
-      }
-      console.log ( userChg.currentValue );
-    }
+    // if ( changes.hasOwnProperty('selected') ) {
+    //   const userChg: SimpleChange = changes.selected;
+    //   if ( userChg.firstChange ) {
+    //     console.log ( 'erstes mal übermittelt' );
+    //   } else {
+    //     console.log ( `update von ${userChg.previousValue} zu ${userChg.currentValue}` );
+    //   }
+    //   console.log ( userChg.currentValue );
+    // }
   }
 
 }

@@ -16,7 +16,7 @@ export class DangerBtnDirective {
   @Input() gfkDangerBtn: string;
 
   constructor( elemRef: ElementRef ) {
-    console.log( 'heppa', elemRef, elemRef.nativeElement, '');
+    // console.log( 'heppa', elemRef, elemRef.nativeElement, '');
   }
   // (click)="clicked()"
   @HostListener ('click')
