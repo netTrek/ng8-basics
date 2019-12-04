@@ -14,6 +14,7 @@ import { registerLocaleData } from '@angular/common';
 import { RxjsSampleModule } from './rxjs-sample/rxjs-sample.module';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeModule } from './home/home.module';
+import { ContactModule } from './contact/contact.module';
 
 registerLocaleData( localeData );
 
@@ -31,7 +32,8 @@ registerLocaleData( localeData );
     PipeSamplesModule,
     RxjsSampleModule,
     HttpClientModule,
-    HomeModule
+    HomeModule,
+    ContactModule
   ],
   providers: [
     { useValue: 'de', provide: LOCALE_ID }
