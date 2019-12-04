@@ -1,0 +1,47 @@
+<h3>date</h3>
+<ul>
+  <li>{{currDate}}</li>
+  <li>{{currDate | json }}</li>
+  <li>{{currDate | date}}</li>
+  <li>{{currDate | date : 'long' }}</li>
+  <li>{{currDate | date : 'long' : '+0900' }}</li>
+  <li>{{currDate | date : 'long' : '+0900' : 'en' }}</li>
+</ul>
+
+<h3>array</h3>
+<ul>
+  <li>{{list | json  }}</li>
+  <li>{{list | slice : -3  }}</li>
+  <li>{{list | reverse : 9 :8 :7  }}</li>
+</ul>
+
+<h3>string</h3>
+<ul>
+  <li>{{str}}</li>
+  <li>{{str | reverse }}</li>
+  <li>{{str | reverse : 'hallo' }}</li>
+  <li>{{str | uppercase}}</li>
+  <li>{{str | lowercase}}</li>
+  <li>{{str | lowercase | slice : -3  }}</li>
+</ul>
+
+<h3>num</h3>
+<ul>
+  <li>{{num}}</li>
+  <li>{{num | multiply }}</li>
+  <li>{{num | multiply : 10 }}</li>
+  <li>{{num | number}}</li>
+  <li>{{longNum | number}}</li>
+  <li>{{num | number : '3.5'}}</li>
+  <li>{{num | number : '3.3-5'}}</li>
+</ul>
+<h3>currency</h3>
+<ul>
+  <li>{{num}}</li>
+  <li>{{num | currency}}</li>
+  <li>{{num | currency }}</li>
+  <li>{{num | currency : 'EUR'}}</li>
+  <li>{{num | currency : 'EUR' : 'symbol'}}</li>
+  <li>{{num | currency : 'EUR' : 'code'}}</li>
+  <li>{{num | currency : 'EUR' : 'symbol' : '3.5' }}</li>
+</ul>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
+import { UserService } from '../user.service';
+
 // Eltern
 @Component ( {
   selector   : 'gfk-user-list',
@@ -8,15 +10,11 @@ import { User } from '../user';
 } )
 export class UserListComponent implements OnInit {
 
-  userList: User[] = [
-    {firstname: 'saban', lastname: 'ünlü', age: 44},
-    {firstname: 'peter', age: 33, lastname: 'müller'},
-    {firstname: 'heike', lastname: 'mayer'}
-  ];
-
   selectedUsr: User;
-  constructor() {
+
+  constructor( public $user: UserService ) {
   }
+
   ngOnInit() {
   }
 
@@ -29,18 +27,21 @@ export class UserListComponent implements OnInit {
   }
 
   deleteSelectedUsr() {
-    this.userList.splice( this.userList.indexOf( this.selectedUsr) , 1 );
-    this.selectedUsr = undefined;
+    if ( this.selectedUsr ) {
+      this.$user.deleteUsr ( this.selectedUsr );
+      this.selectedUsr = undefined;
+    }
   }
 
   addUser( firstname: string, lastname: string ) {
-    const usr = { firstname, lastname };
-    this.userList.push( usr );
-    this.selectedUsr = usr;
+    const usr        = { firstname, lastname };
+    this.selectedUsr = this.$user.addUser ( usr );
   }
 
   updateUser( firstname: string, lastname: string ) {
-    this.selectedUsr.firstname = firstname;
-    this.selectedUsr.lastname = lastname;
+    this.selectedUsr = this.$user.updateUser( this.selectedUsr,
+      firstname, lastname
+    );
   }
+
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { AppService } from '../app.service';
 
 @Component ( {
   selector   : 'gfk-user',
@@ -14,7 +15,8 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 } )
 export class UserComponent implements OnInit {
 
-  constructor() {
+  constructor( public $app: AppService ) {
+    console.log ( $app );
   }
 
   ngOnInit() {
