@@ -1,0 +1,7 @@
+:host {
+  ::ng-deep a.active {
+    color: red;
+    font-weight: bolder;
+    cursor: default;
+  }
+}

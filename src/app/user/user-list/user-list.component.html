@@ -17,6 +17,7 @@
 <button gfkDangerBtn="Willst du {{selectedUsr.firstname | uppercase}} wirklich löschen?"
         (confirmed)="deleteSelectedUsr()"
 >delete selected</button>
+  <button [routerLink]="[ selectedUsr.id ]">details</button>
 </ng-container>
 
 <ng-template #addUserBlock>

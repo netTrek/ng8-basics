@@ -1,7 +1,14 @@
 <h3>gfk</h3>
 <gfk-error></gfk-error>
 
-<nav>ich werde navigieren</nav>
+<nav>
+
+  <ng-container *ngFor="let config of routes; last as l; first as f">
+    <a [routerLink]="[config.path]" routerLinkActive="active" >{{config.path | uppercase}}</a>
+    <ng-container *ngIf="!l"> | </ng-container>
+  </ng-container>
+
+</nav>
 <hr>
 <router-outlet></router-outlet>
 <hr>
