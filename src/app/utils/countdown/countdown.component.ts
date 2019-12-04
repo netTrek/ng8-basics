@@ -1,4 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { interval, Observable, of, Subscription } from 'rxjs';
+import { map, take } from 'rxjs/operators';
 
 @Component ( {
   selector   : 'gfk-countdown',
@@ -6,20 +8,45 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
   styleUrls  : [ './countdown.component.scss' ]
 } )
 export class CountdownComponent implements OnInit, OnDestroy {
-  percent = 100;
-  private intervalId: number;
+  percent                                      = 100;
+  counter$: Observable<number>;
+  @Input () duration                           = 100;
+  @Output () finished: EventEmitter<undefined> = new EventEmitter ();
+  private subscription: Subscription;
+
+  // private intervalId: number;
 
   constructor() {
   }
 
   ngOnInit() {
-    this.intervalId = window.setInterval ( () => {
-      this.percent -= 5;
-      console.log ( this.percent );
-      if ( this.percent === 0 ) {
-        this.dispose ();
-      }
-    }, 100 );
+    // 2000
+    // 1000 .... 20
+    this.duration     = + this.duration;
+    this.subscription = interval ( this.duration / 20 )
+      .pipe (
+        map ( value => 100 - (value + 1) * 5 ),
+        take ( 20 )
+      )
+      .subscribe (
+        next => this.percent = next, // (this.percent -= 5),
+        err => console.error ( err ),
+        () => this.finished.emit ()
+      );
+
+    this.counter$ = interval ( this.duration / 20 )
+      .pipe (
+        map ( value => 100 - (value + 1) * 5 ),
+        take ( 20 )
+      );
+
+    // this.intervalId = window.setInterval ( () => {
+    //   this.percent -= 5;
+    //   console.log ( this.percent );
+    //   if ( this.percent === 0 ) {
+    //     this.dispose ();
+    //   }
+    // }, 100 );
   }
 
   ngOnDestroy(): void {
@@ -28,10 +55,11 @@ export class CountdownComponent implements OnInit, OnDestroy {
 
   private dispose() {
 
-    if ( !!this.intervalId ) {
-      window.clearInterval ( this.intervalId );
-      this.intervalId = undefined;
-    }
+    this.subscription.unsubscribe ();
+    // if ( !!this.intervalId ) {
+    //   window.clearInterval ( this.intervalId );
+    //   this.intervalId = undefined;
+    // }
   }
 
 }

@@ -8,6 +8,9 @@ import { AppService } from './app.service';
 } )
 export class AppComponent {
   title = 'GfK2019';
+  msg: string;
+
+  private counter = 0;
 
   constructor( $app: AppService ) {
     console.log ( $app );
@@ -15,5 +18,9 @@ export class AppComponent {
 
   machWasSchlimmes() {
     console.log ( 'hepüpa' );
+  }
+
+  ready() {
+    this.msg = `${++this.counter} counter sind fertig`;
   }
 }

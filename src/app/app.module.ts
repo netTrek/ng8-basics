@@ -11,6 +11,7 @@ import { PipeSamplesModule } from './pipe-samples/pipe-samples.module';
 
 import localeData from '@angular/common/locales/de';
 import { registerLocaleData } from '@angular/common';
+import { RxjsSampleModule } from './rxjs-sample/rxjs-sample.module';
 
 registerLocaleData( localeData );
 
@@ -25,7 +26,8 @@ registerLocaleData( localeData );
     UserModule,
     UtilsModule,
     DirectiveSamplesModule,
-    PipeSamplesModule
+    PipeSamplesModule,
+    RxjsSampleModule
   ],
   providers: [
     { useValue: 'de', provide: LOCALE_ID }

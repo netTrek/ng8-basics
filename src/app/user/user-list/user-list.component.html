@@ -1,7 +1,7 @@
 
 <h3 *ngIf="selectedUsr">selected User: {{selectedUsr.firstname}} {{selectedUsr.lastname}}</h3>
 <gfk-user-list-item
-  *ngFor="let user of $user.userList; even as e; odd as o"
+  *ngFor="let user of $user.userList$ | async; even as e; odd as o"
   [user]="user"
   [selected]="user === selectedUsr"
   (selectUsr)="selectUser($event)"

@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { AppService } from '../app.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { UserService } from './user.service';
+import { Subscription } from 'rxjs';
 
 @Component ( {
   selector   : 'gfk-user',
@@ -13,12 +14,20 @@ import { AppService } from '../app.service';
   // encapsulation: ViewEncapsulation.ShadowDom
   // encapsulation: ViewEncapsulation.Emulated
 } )
-export class UserComponent implements OnInit {
+export class UserComponent implements OnInit, OnDestroy {
+  private sub: Subscription;
 
-  constructor( public $app: AppService ) {
-    console.log ( $app );
+  constructor( public $user: UserService ) {
+    // console.log ( $app );
+    this.sub = $user.userList$.subscribe( next => {
+      console.log ( 'liste wurde aktualisiert', next, next.length );
+    });
   }
 
   ngOnInit() {
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
 }
