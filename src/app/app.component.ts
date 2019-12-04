@@ -13,11 +13,11 @@ export class AppComponent {
   private counter = 0;
 
   constructor( $app: AppService ) {
-    console.log ( $app );
+    // console.log ( $app );
   }
 
   machWasSchlimmes() {
-    console.log ( 'hepüpa' );
+    // console.log ( 'hepüpa' );
   }
 
   ready() {

@@ -13,6 +13,7 @@ import localeData from '@angular/common/locales/de';
 import { registerLocaleData } from '@angular/common';
 import { RxjsSampleModule } from './rxjs-sample/rxjs-sample.module';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeModule } from './home/home.module';
 
 registerLocaleData( localeData );
 
@@ -29,7 +30,8 @@ registerLocaleData( localeData );
     DirectiveSamplesModule,
     PipeSamplesModule,
     RxjsSampleModule,
-    HttpClientModule
+    HttpClientModule,
+    HomeModule
   ],
   providers: [
     { useValue: 'de', provide: LOCALE_ID }
