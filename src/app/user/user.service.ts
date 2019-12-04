@@ -3,45 +3,64 @@ import { User } from './user';
 import { BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import { ErrorService } from '../utils/error/error.service';
+import { tap } from 'rxjs/operators';
 
 @Injectable ( {
   providedIn: 'root'
 } )
 export class UserService {
 
-  userList$: BehaviorSubject<User[]> = new BehaviorSubject( []);
+  userList: User[]                   = [];
+  userList$: BehaviorSubject<User[]> = new BehaviorSubject ( [] );
 
-  constructor( private $http: HttpClient ) {
-    this.updateList();
+  constructor( private $http: HttpClient,
+               private $err: ErrorService ) {
+    this.updateList ();
   }
 
-  deleteUsr( user: User ): boolean {
-    // deletee
-    const ind = this.userList$.value.indexOf ( user );
-    if ( ind === - 1 ) {
-      return false;
-    }
-    this.userList$.value.splice ( ind, 1 );
-    this.userList$.next( this.userList$.value );
-    return true;
+  deleteUsr( userPayload: User ): Promise<any> {
+    // delete
+    return this.$http.delete( environment.api + userPayload.id ).pipe(
+      tap( success => this.updateList(),
+        err => this.$err.error$.next(
+          'konnte Datensatz nicht löschen'
+        ))
+    ).toPromise();
   }
 
-  addUser( user: User ): User {
+  addUser( userPayload: User ): Promise<User> {
     // post
-    this.userList$.next( [...this.userList$.value, user] );
-    return user;
+    /*this.userList$.next ( [ ...this.userList$.value,
+                            user
+    ] );*/
+    return this.$http.post<User> ( environment.api, userPayload )
+               .pipe (
+                  tap( newuser => this.updateList(),
+                    err => this.$err.error$.next(
+                      'konnte Datensatz nicht anlege'
+                    ))
+               )
+               .toPromise ();
   }
 
-  updateUser( usr: User, firstname: string, lastname: string ): User | undefined {
+  updateUser( userPayload: User ): Promise<User> {
     // put
-    usr.firstname = firstname;
-    usr.lastname  = lastname;
-    this.userList$.next( this.userList$.value );
-    return usr;
+    return this.$http.put<User>( environment.api + userPayload.id, userPayload ).pipe(
+      tap( newuser => this.updateList(),
+        err => this.$err.error$.next(
+          'konnte Datensatz nicht aktualisieren'
+        ))
+    ).toPromise();
   }
 
   private updateList() {
-    this.$http.get<User[]>( environment.api )
-        .subscribe( users => this.userList$.next( users ) );
+    this.$http.get<User[]> ( environment.api )
+        .subscribe (
+          users => this.userList$.next ( users ), // Behsub
+          // users => this.userList = users // liste,
+          err => this.$err.error$.next ( 'konnte benutzerliste nicht aktualisieren' )
+        )
+    ;
   }
 }

@@ -3,7 +3,7 @@
 <gfk-user-list-item
   *ngFor="let user of $user.userList$ | async; even as e; odd as o"
   [user]="user"
-  [selected]="user === selectedUsr"
+  [selected]="user?.id === selectedUsr?.id"
   (selectUsr)="selectUser($event)"
   [ngClass]="{even: e, odd: o}"
 >

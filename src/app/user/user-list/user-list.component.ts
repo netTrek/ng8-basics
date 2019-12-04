@@ -33,14 +33,27 @@ export class UserListComponent implements OnInit {
     }
   }
 
-  addUser( firstname: string, lastname: string ) {
-    const usr        = { firstname, lastname };
-    this.selectedUsr = this.$user.addUser ( usr );
+  // addUser( firstname: string, lastname: string ) {
+  //   const usr        = { firstname, lastname };
+  //   this.$user.addUser ( usr ).then(
+  //     user => this.selectedUsr = user
+  //   );
+  //   // this.selectedUsr = this.$user.addUser ( usr );
+  // }
+
+  async addUser( firstname: string, lastname: string ) {
+    // const usr        = { firstname, lastname };
+    // const newUSer = await this.$user.addUser ( usr );
+    // this.selectedUsr = newUSer;
+    this.selectedUsr = await this.$user.addUser ( { firstname, lastname } );
   }
 
-  updateUser( firstname: string, lastname: string ) {
-    this.selectedUsr = this.$user.updateUser( this.selectedUsr,
-      firstname, lastname
+  async updateUser( firstname: string, lastname: string ) {
+    this.selectedUsr = await this.$user.updateUser (
+      {
+        ...this.selectedUsr,
+        firstname, lastname
+      }
     );
   }
 
