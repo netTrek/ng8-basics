@@ -18,6 +18,7 @@ const routes: Routes = [
       {path: 'map', component: MapComponent },
       {path: 'form', component: FormComponent }
     ] },
+  { path: 'dash', loadChildren: () => import('./dash/dash.module').then(m => m.DashModule) },
   { path: '**', redirectTo: 'home'}
 ];
 

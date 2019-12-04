@@ -1,3 +1,20 @@
-<form action="">
-  <input type="text" placeholder="mail">
+<form #myForm='ngForm' (ngSubmit)="send( myForm.value)">
+  <input type="text" placeholder="name*" name="name" ngModel #name='ngModel'>
+  <span ngModelGroup="credentials">
+    <input type="text" placeholder="mail" name="mail" ngModel #mail='ngModel' required email>
+    <div *ngIf="mail.errors && mail.dirty">
+      <span *ngIf="mail.errors?.required">bitte gib email ein</span>
+      <span *ngIf="mail.errors?.email">bitte gib eine gültige email ein</span>
+    </div>
+    <input type="text" placeholder="password" name="password" ngModel #password='ngModel'>
+  </span>
+  <button type="submit" [disabled]="myForm.invalid">submit</button>
+  <button type="reset" [disabled]="myForm.pristine">reset</button>
 </form>
+
+<!--
+<p>{{myForm.valid | json}}</p>
+<p>{{myForm.value | json}}</p>
+<p>{{name.value | json}}</p>
+<p>{{mail?.errors| json}}</p>
+-->

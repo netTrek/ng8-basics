@@ -12,4 +12,7 @@ export class FormComponent implements OnInit {
   ngOnInit() {
   }
 
+  send( value: any ) {
+    console.log ( 'sending data', value );
+  }
 }
