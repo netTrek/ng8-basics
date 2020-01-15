@@ -3,16 +3,19 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { UserModule } from './user/user.module';
 
 @NgModule({
-  declarations: [
+  declarations: [ // alle im Temp. verwendeten Elemente müssen für den Kompiler registriert werden!
     AppComponent
   ],
-  imports: [
+  imports: [ // abh. Module importieren
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    UserModule
+    // weil ng new  mit --routing
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [], // Registreiren von Elementen in den Injector
+  bootstrap: [AppComponent] // mit welcher Komponente soll in der index.html begonnen werden.
 })
 export class AppModule { }
