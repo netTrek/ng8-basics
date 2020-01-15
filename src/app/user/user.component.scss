@@ -1,3 +1,15 @@
+:host {
+  background-color: linen;
+  display: block;
+
+  ::ng-deep button {
+    background-color: red;
+  }
+
+}
+
+
 h1 {
   color: darkgray;
 }
+
