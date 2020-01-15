@@ -1,0 +1,39 @@
+<p>binding-sample works!</p>
+<ul>
+  <li>Interpolation</li>
+  <li>
+    hello {{ val }} # {{ count }}
+  </li>
+<!--  <li>
+    {{ num + 1 }}€
+  </li>
+  <li>
+    {{ obj | json}}
+  </li>
+  <li>
+    Bitte nur wenn muss! {{ getNum() }}
+  </li>
+  <li>
+    Bitte lieber eine Pipe nutzen {{ getSum ( num ) }}
+  </li>
+  <li>
+    <img src="./assets/images/{{file}}" alt="cat" width="10%">
+  </li>-->
+  <li>Eigenschaften</li>
+  <li>
+    <img [src]="'./assets/images/' + file" alt="cat" width="10%">
+
+  </li><!--
+  <li [innerHTML]="html"></li>
+  <li [style.color]="color">{{html}}></li>
+  &lt;!&ndash;<li><div [style.width]="width + 'px'">hello</div></li>&ndash;&gt;
+  <li><div [style.width.px]="width">hello</div></li>-->
+  <li>attribute</li>
+    <p [attr.aria-label]="ariaLabel">Lorem ipsum dolor sit amet, consectetur adipisicing elit.t vitae voluptates? Culpa eligendi ipsa molestias necessitatibus sit.</p>
+  <li>Ereignisse</li>
+  <li><button (click)="btnClick( $event )">mach was</button></li>
+</ul>
+
+<div class="outer">
+  <div class="inner"></div>
+</div>

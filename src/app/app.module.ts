@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserModule } from './user/user.module';
+import { BindingSampleModule } from './binding-sample/binding-sample.module';
+import { UtilsModule } from './utils/utils.module';
 
 @NgModule({
   declarations: [ // alle im Temp. verwendeten Elemente müssen für den Kompiler registriert werden!
@@ -12,7 +14,9 @@ import { UserModule } from './user/user.module';
   imports: [ // abh. Module importieren
     BrowserModule,
     AppRoutingModule,
-    UserModule
+    UserModule,
+    BindingSampleModule,
+    UtilsModule
     // weil ng new  mit --routing
   ],
   providers: [], // Registreiren von Elementen in den Injector

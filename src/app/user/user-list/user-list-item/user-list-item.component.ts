@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'gfk-user-list-item',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-list-item.component.scss']
 })
 export class UserListItemComponent implements OnInit {
+
+  @Input() username: string;
 
   constructor() { }
 

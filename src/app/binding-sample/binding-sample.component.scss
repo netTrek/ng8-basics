@@ -1,0 +1,19 @@
+div {
+  display: inline-block;
+  width: 100px;
+  background-color: yellow;
+}
+
+.outer {
+  display: inline-block;
+  background-color: red;
+  width: 100px;
+  height: 20px;
+}
+
+.inner {
+  display: inline-block;
+  background-color: green;
+  width: 50%;
+  height: 100%;
+}

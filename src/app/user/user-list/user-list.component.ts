@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserListComponent implements OnInit {
 
+  users: string[] = ['petra', 'frank', 'und viele mehr'];
+
   constructor() { }
 
   ngOnInit() {
+    for ( const username of this.users ) {
+      console.log ( username );
+    }
   }
 
 }

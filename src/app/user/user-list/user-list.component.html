@@ -1,4 +1,26 @@
 <p>user-list works!</p>
-<gfk-user-list-item></gfk-user-list-item>
 
-<button>hhhh</button>
+<gfk-user-list-item *ngFor="let usrname of users"
+                    [username]="usrname"></gfk-user-list-item>
+
+<!--
+<gfk-user-list-item [username]="users[0]"></gfk-user-list-item>
+<gfk-user-list-item [username]="users[1]"></gfk-user-list-item>
+<gfk-user-list-item [username]="users[2]"></gfk-user-list-item>
+-->
+
+<!--
+<gfk-user-list-item username="peter"></gfk-user-list-item>
+<gfk-user-list-item username="frank"></gfk-user-list-item>
+<gfk-user-list-item username="petra"></gfk-user-list-item>
+-->
+
+
+<!--
+<gfk-user-list-item>Peter</gfk-user-list-item>
+<gfk-user-list-item>Hans</gfk-user-list-item>
+<gfk-user-list-item>Heike</gfk-user-list-item>
+<gfk-user-list-item>Petra</gfk-user-list-item>
+<gfk-user-list-item>Saban</gfk-user-list-item>
+-->
+
