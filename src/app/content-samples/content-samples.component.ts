@@ -1,4 +1,14 @@
-import { AfterContentInit, Component, ContentChild, ContentChildren, ElementRef, OnInit, QueryList, Renderer2 } from '@angular/core';
+import {
+  AfterContentInit,
+  Component,
+  ContentChild,
+  ContentChildren,
+  ElementRef,
+  OnInit,
+  QueryList,
+  Renderer2,
+  TemplateRef
+} from '@angular/core';
 import { ContentBodyComponent } from './content-body/content-body.component';
 import { ContentFooterComponent } from './content-footer/content-footer.component';
 import { ContentHeaderComponent } from './content-header/content-header.component';

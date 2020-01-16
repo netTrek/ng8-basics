@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { UserListComponent } from './user-list/user-list.component';
 
 @Component ( {
   selector   : 'gfk-user', // Knoten-Name innerhalb der HTML
@@ -22,13 +23,25 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 export class UserComponent implements OnInit {
   name = 'Saban';
 
+  @ViewChild ( UserListComponent, {static: true} )
+  userList: UserListComponent;
+
+  @ViewChild ( 'ueberschrift' , {static: true})
+  ueberschrift: ElementRef<HTMLHeadingElement>;
+
   constructor() {
   }
 
   ngOnInit() {
+    console.log ( this.userList, this.ueberschrift.nativeElement );
   }
 
   chgName() {
     this.name = 'Peter Müller';
   }
+/*
+  valueOfInput( value: string ) {
+    console.log ( 'input wert ist', value );
+  }
+  */
 }
