@@ -2,7 +2,11 @@
 <gfk-user-list-item *ngFor="let user of users"
                     [user]="user"
                     (selectUser)="selectedUsr( $event )"
+                    [isSelected]="selectedUser === user"
 ></gfk-user-list-item>
+<!--
+                    [class.selected]="selectedUser === user"
+-->
 
 <!--
 <gfk-user-list-item [username]="users[0]"></gfk-user-list-item>

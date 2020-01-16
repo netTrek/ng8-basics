@@ -18,12 +18,13 @@ export class UserListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    for ( const username of this.users ) {
-      console.log ( username );
-    }
   }
 
   selectedUsr( user: User ) {
-    this.selectedUser = user;
+    if ( this.selectedUser === user ) {
+      this.selectedUser = undefined;
+    } else {
+      this.selectedUser = user;
+    }
   }
 }
