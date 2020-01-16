@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Play } from '../rxjs-sample/Play';
+import { UserService } from '../user/user.service';
 
 @Component ( {
   selector   : 'gfk-pipe-sample',
@@ -10,8 +11,8 @@ export class PipeSampleComponent implements OnInit {
 
   crrDate: Date = new Date ();
 
-  constructor( public play: Play ) {
-    console.log ( play );
+  constructor( public play: Play, public user: UserService ) {
+    console.log ( play, user );
   }
 
   ngOnInit() {

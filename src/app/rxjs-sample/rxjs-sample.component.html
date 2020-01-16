@@ -1,5 +1,6 @@
 <hr>
-{{play.value}}
+{{play.value}} |
+{{user.value$ | async}}
 <hr>
 <button (click)="resetOutput()">clear</button>
 <div [innerHTML]="output"></div>

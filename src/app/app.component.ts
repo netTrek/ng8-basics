@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserService } from './user/user.service';
 
 @Component ( {
   selector   : 'gfk-root',
@@ -7,6 +8,9 @@ import { Component } from '@angular/core';
 } )
 export class AppComponent {
   title = 'GfK2020';
+  constructor( user: UserService ) {
+    user.value$.subscribe( next => console.log ( next ));
+  }
 }
 
 

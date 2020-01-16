@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject, fromEvent, interval, Observable, of, range, Subject, Subscription, timer } from 'rxjs';
 import { map, take, tap, timeout } from 'rxjs/operators';
 import { Play } from './Play';
+import { UserService } from '../user/user.service';
 
 @Component ( {
   selector   : 'gfk-rxjs-sample',
@@ -12,7 +13,7 @@ import { Play } from './Play';
 export class RxjsSampleComponent implements OnInit {
   output = '';
 
-  constructor( public play: Play ) {
+  constructor( public play: Play, public user: UserService) {
     console.log ( play );
   }
 
@@ -40,7 +41,9 @@ export class RxjsSampleComponent implements OnInit {
       return () => window.clearInterval( id );
     } ).pipe(
       tap(
-        next => ++this.play.value
+        next => {
+          this.user.value$.next( this.user.value$.getValue() + 1 );
+        }
       ),
       take ( 2 )
     );
