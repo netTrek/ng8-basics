@@ -1,21 +1,19 @@
-<p>user-list works!</p>
-
-<gfk-user-list-item *ngFor="let usrname of users"
-                    [username]="usrname"></gfk-user-list-item>
+<h2>{{selectedUser | json}}</h2>
+<gfk-user-list-item *ngFor="let user of users"
+                    [user]="user"
+                    (selectUser)="selectedUsr( $event )"
+></gfk-user-list-item>
 
 <!--
 <gfk-user-list-item [username]="users[0]"></gfk-user-list-item>
 <gfk-user-list-item [username]="users[1]"></gfk-user-list-item>
 <gfk-user-list-item [username]="users[2]"></gfk-user-list-item>
 -->
-
 <!--
 <gfk-user-list-item username="peter"></gfk-user-list-item>
 <gfk-user-list-item username="frank"></gfk-user-list-item>
 <gfk-user-list-item username="petra"></gfk-user-list-item>
 -->
-
-
 <!--
 <gfk-user-list-item>Peter</gfk-user-list-item>
 <gfk-user-list-item>Hans</gfk-user-list-item>

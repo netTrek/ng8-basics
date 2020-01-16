@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../user';
 
 @Component({
   selector: 'gfk-user-list',
@@ -7,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserListComponent implements OnInit {
 
-  users: string[] = ['petra', 'frank', 'und viele mehr'];
+  users: User[] = [
+    {fistname: 'peter', lastname: 'müller' },
+    {fistname: 'petra', lastname: 'mayer' }
+  ];
+
+  selectedUser: User;
 
   constructor() { }
 
@@ -17,4 +23,7 @@ export class UserListComponent implements OnInit {
     }
   }
 
+  selectedUsr( user: User ) {
+    this.selectedUser = user;
+  }
 }

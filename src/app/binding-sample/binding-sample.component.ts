@@ -18,15 +18,17 @@ export class BindingSampleComponent implements OnInit {
   constructor() {
   }
 
-  width     = 200;
-  ariaLabel = 'Beschreibung zum Artikel';
+  width      = 200;
+  ariaLabel  = 'Beschreibung zum Artikel';
+  classlist  = 'outer';
+  isSelected = true;
 
   ngOnInit() {
 
     this.intervalID = window.setInterval ( () => {
       console.log ( this.count ++ );
       if ( this.count === 10 ) {
-        window.clearInterval( this.intervalID );
+        window.clearInterval ( this.intervalID );
         this.intervalID = undefined;
       }
     }, 100 );
@@ -44,5 +46,14 @@ export class BindingSampleComponent implements OnInit {
 
   btnClick( mouse: MouseEvent ) {
     console.log ( 'clicked', mouse );
+  }
+
+  toggle() {
+    this.isSelected = !this.isSelected;
+    if ( this.classlist !== 'inner' ) {
+      this.classlist = 'inner';
+    } else {
+      this.classlist = 'outer';
+    }
   }
 }

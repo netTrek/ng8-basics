@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { User } from '../../user';
 
 @Component({
   selector: 'gfk-user-list-item',
@@ -7,11 +8,18 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class UserListItemComponent implements OnInit {
 
-  @Input() username: string;
+  @Input()
+  user: User;
+
+  @Output()
+  selectUser: EventEmitter<User> = new EventEmitter<User>();
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  clicked() {
+    this.selectUser.emit( this.user );
+  }
 }

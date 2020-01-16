@@ -32,6 +32,11 @@
     <p [attr.aria-label]="ariaLabel">Lorem ipsum dolor sit amet, consectetur adipisicing elit.t vitae voluptates? Culpa eligendi ipsa molestias necessitatibus sit.</p>
   <li>Ereignisse</li>
   <li><button (click)="btnClick( $event )">mach was</button></li>
+  <li>Class</li>
+  <li><div class="outer">use outer</div></li>
+  <li><div [class]="classlist" (click)="toggle()">use outer via binding</div></li>
+  <li><div class="inner" [class]="classlist">use inner will be overriden</div></li>
+  <li [class.selected]="isSelected">{{isSelected}}</li>
 </ul>
 
 <div class="outer">
