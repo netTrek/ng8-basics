@@ -1,4 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { interval, Subscription } from 'rxjs';
+import { map, take } from 'rxjs/operators';
 
 @Component ( {
   selector   : 'gfk-countdown',
@@ -6,19 +8,26 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
   styleUrls  : [ './countdown.component.scss' ]
 } )
 export class CountdownComponent implements OnInit, OnDestroy {
+
   percent = 100;
-  private intervalID: number;
+  @Input() duration = 4000;
+  private subscription: Subscription;
 
   constructor() {
   }
 
   ngOnInit() {
-    this.intervalID = window.setInterval ( () => {
-      this.percent -= 5;
-      if ( this.percent === 0 ) {
-        this.killInterval ();
-      }
-    }, 200 );
+    this.subscription = interval(+this.duration / 20 ).pipe(
+      take ( 20 )
+    ).subscribe(
+      next => this.percent -= 5
+    );
+    // this.intervalID = window.setInterval ( () => {
+    //   this.percent -= 5;
+    //   if ( this.percent === 0 ) {
+    //     this.killInterval ();
+    //   }
+    // }, 200 );
   }
 
   ngOnDestroy(): void {
@@ -30,9 +39,10 @@ export class CountdownComponent implements OnInit, OnDestroy {
   }
 
   private killInterval() {
-    if ( this.intervalID ) {
-      window.clearInterval ( this.intervalID );
-      this.intervalID = undefined;
-    }
+    this.subscription.unsubscribe();
+    // if ( this.intervalID ) {
+    //   window.clearInterval ( this.intervalID );
+    //   this.intervalID = undefined;
+    // }
   }
 }

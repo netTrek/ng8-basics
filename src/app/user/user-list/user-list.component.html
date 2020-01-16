@@ -1,5 +1,6 @@
+<h3 *ngIf="selectedUser">{{selectedUser.fistname | reverse}}</h3>
 
-<gfk-user-list-item *ngFor="let user of users; even as e; odd as o"
+<gfk-user-list-item *ngFor="let user of users | reverse; even as e; odd as o"
                     [user]="user"
                     (selectUser)="selectedUsr( $event )"
                     [isSelected]="selectedUser === user"

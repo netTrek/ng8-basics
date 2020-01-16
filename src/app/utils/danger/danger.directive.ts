@@ -9,7 +9,7 @@ import { Directive, EventEmitter, HostBinding, HostListener, Input, Output } fro
   }
 } )
 export class DangerDirective {
-
+  // < ..... [style.background-color]="bgColor"
   @HostBinding ( 'style.background-color' )
   bgColor = 'red';
 
