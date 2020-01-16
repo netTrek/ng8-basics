@@ -39,11 +39,11 @@ export class UserListItemComponent implements OnInit, OnChanges, OnDestroy {
 
 
   constructor() {
-    console.log ( 'constructor' );
+    // console.log ( 'constructor' );
   }
 
   ngOnInit() {
-    console.log ( 'init' );
+    // console.log ( 'init' );
   }
   @HostListener ('click')
   clicked() {
@@ -51,16 +51,16 @@ export class UserListItemComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   ngOnChanges( changes: SimpleChanges ): void {
-    console.log ( 'change' );
+    // console.log ( 'change' );
     if ( changes.hasOwnProperty( 'isSelected') ) {
       const selectedState: SimpleChange = changes.isSelected;
       if ( selectedState.firstChange ) {
-        console.log ( 'initial definiert' );
+        // console.log ( 'initial definiert' );
       }
     }
   }
 
   ngOnDestroy(): void {
-    console.log ( 'destroy' );
+    // console.log ( 'destroy' );
   }
 }

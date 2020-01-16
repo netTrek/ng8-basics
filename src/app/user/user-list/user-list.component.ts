@@ -33,6 +33,7 @@ export class UserListComponent implements OnInit {
       const index = this.users.indexOf( this.selectedUser );
       if ( index !== -1 ) {
         this.users.splice( index, 1 );
+        this.selectedUser = undefined;
       }
     }
   }

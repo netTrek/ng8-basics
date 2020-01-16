@@ -5,4 +5,10 @@
     color: red;
     cursor: default;
   }
+  &.even {
+    background-color: bisque;
+  }
+  &.odd {
+    background-color: #e8ceaf;
+  }
 }
