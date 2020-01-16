@@ -10,6 +10,7 @@ import { UserService } from '../user/user.service';
 export class PipeSampleComponent implements OnInit {
 
   crrDate: Date = new Date ();
+  value$ = this.user.getStreamByKey<number>( 'value' );
 
   constructor( public play: Play, public user: UserService ) {
     console.log ( play, user );

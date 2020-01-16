@@ -11,6 +11,7 @@ import { PipeSampleModule } from './pipe-sample/pipe-sample.module';
 import localeDe from '@angular/common/locales/de';
 import { registerLocaleData } from '@angular/common';
 import { RxjsSampleModule } from './rxjs-sample/rxjs-sample.module';
+import { MY_APP_NAME } from './app-token';
 
 registerLocaleData( localeDe ); // registrieren weiterer sprachen
 
@@ -30,7 +31,8 @@ registerLocaleData( localeDe ); // registrieren weiterer sprachen
     // weil ng new  mit --routing
   ],
   providers: [
-    { useValue: 'de', provide: LOCALE_ID } // def. lang definieren.
+    { useValue: 'de', provide: LOCALE_ID }, // def. lang definieren.
+    { useValue: 'gfk app', provide: MY_APP_NAME, multi: true } // def. lang definieren.
   ], // Registreiren von Elementen in den Injector
   bootstrap: [AppComponent] // mit welcher Komponente soll in der index.html begonnen werden.
 })

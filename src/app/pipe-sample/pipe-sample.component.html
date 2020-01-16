@@ -1,10 +1,12 @@
 <hr>
 {{play.value}} |
-{{user.value$ | async}}
+{{value$ | async}}
 <hr>
 
+
+
 <p>pipe-sample works!</p>
-{{ crrDate | date : 'long'  }}
+{{ crrDate | date : 'long' | reverse }}
 <br>
 {{ crrDate | date : 'long' : '+0200' : 'de' }}
 <br>

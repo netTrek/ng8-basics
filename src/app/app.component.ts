@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { UserService } from './user/user.service';
+import { MY_APP_NAME } from './app-token';
 
 @Component ( {
   selector   : 'gfk-root',
@@ -8,8 +9,9 @@ import { UserService } from './user/user.service';
 } )
 export class AppComponent {
   title = 'GfK2020';
-  constructor( user: UserService ) {
-    user.value$.subscribe( next => console.log ( next ));
+  constructor( user: UserService, @Inject( MY_APP_NAME ) appName: string[] ) {
+    console.warn ( appName );
+    user.subscribe( next => console.log ( next.value ));
   }
 }
 
