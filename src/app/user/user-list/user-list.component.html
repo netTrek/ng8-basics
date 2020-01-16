@@ -4,6 +4,7 @@
                     (selectUser)="selectedUsr( $event )"
                     [isSelected]="selectedUser === user"
 ></gfk-user-list-item>
+<button (click)="delSelected()">del selectedUsr</button>
 <!--
                     [class.selected]="selectedUser === user"
 -->

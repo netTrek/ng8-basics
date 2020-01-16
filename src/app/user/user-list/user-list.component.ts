@@ -27,4 +27,13 @@ export class UserListComponent implements OnInit {
       this.selectedUser = user;
     }
   }
+
+  delSelected() {
+    if ( !! this.selectedUser ) {
+      const index = this.users.indexOf( this.selectedUser );
+      if ( index !== -1 ) {
+        this.users.splice( index, 1 );
+      }
+    }
+  }
 }
