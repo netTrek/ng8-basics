@@ -19,7 +19,11 @@ export class UserService {
   }
 
   getUsers(): Observable<User[]> {
-    return this.$http.get<User[]>( environment.api + 'sdfdsf' );
+    return this.$http.get<User[]>( environment.api );
+  }
+
+  getUserById( id: number ): Observable<User> {
+    return this.$http.get<User>( environment.api + id );
   }
 }
 /*

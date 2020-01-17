@@ -18,6 +18,7 @@ import { AppLoadingInterceptorService } from './app-loading-interceptor.service'
 import { LoadingModule } from './loading/loading.module';
 import { ErrorHandlingModule } from './error-handling/error-handling.module';
 import { AppErrorInterceptorService } from './app-error-interceptor.service';
+import { HomeModule } from './home/home.module';
 
 registerLocaleData( localeDe ); // registrieren weiterer sprachen
 
@@ -37,7 +38,8 @@ registerLocaleData( localeDe ); // registrieren weiterer sprachen
     RxjsSampleModule,
     HttpClientModule,
     LoadingModule,
-    ErrorHandlingModule
+    ErrorHandlingModule,
+    HomeModule
   ],
   providers: [
     { useValue: 'de', provide: LOCALE_ID }, // def. lang definieren.

@@ -23,17 +23,17 @@ import { UserListComponent } from './user-list/user-list.component';
 export class UserComponent implements OnInit {
   name = 'Saban';
 
-  @ViewChild ( UserListComponent, {static: true} )
-  userList: UserListComponent;
-
-  @ViewChild ( 'ueberschrift' , {static: true})
-  ueberschrift: ElementRef<HTMLHeadingElement>;
+  // @ViewChild ( UserListComponent, {static: true} )
+  // userList: UserListComponent;
+  //
+  // @ViewChild ( 'ueberschrift' , {static: true})
+  // ueberschrift: ElementRef<HTMLHeadingElement>;
 
   constructor() {
   }
 
   ngOnInit() {
-    console.log ( this.userList, this.ueberschrift.nativeElement );
+    // console.log ( this.userList, this.ueberschrift.nativeElement );
   }
 
   chgName() {

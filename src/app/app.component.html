@@ -6,7 +6,7 @@
 <gfk-countdown></gfk-countdown>
 <gfk-countdown style="width: 50%"></gfk-countdown>
 <gfk-countdown style="width: 200px"></gfk-countdown>
-<router-outlet></router-outlet>
+
 <gfk-binding-sample></gfk-binding-sample>
 
 <gfk-content-samples>
@@ -28,8 +28,14 @@
 <gfk-rxjs-sample></gfk-rxjs-sample>
 -->
 <!--<gfk-loading *ngIf="$loading.count$ | async > 0"></gfk-loading>-->
+
+<nav>
+  <a routerLink="home" routerLinkActive="active">home</a> |
+  <a routerLink="user" routerLinkActive="active">user</a>
+</nav>
 <gfk-loading *ngIf="$loading.count"></gfk-loading>
 <ng-container *ngIf="$err.errorMsg$ | async as msg">
   <gfk-error-handling [msg]="msg"></gfk-error-handling>
 </ng-container>
-<gfk-user></gfk-user>
+<router-outlet></router-outlet>
+<footer>footer</footer>

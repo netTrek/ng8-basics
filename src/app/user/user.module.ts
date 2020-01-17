@@ -7,15 +7,19 @@ import { UtilsModule } from '../utils/utils.module';
 import { CountdownComponent } from '../utils/countdown/countdown.component';
 import { DangerDirective } from '../utils/danger/danger.directive';
 import { ReversePipe } from '../utils/reverse/reverse.pipe';
+import { RouterModule } from '@angular/router';
+import { UserEditComponent } from './user-edit/user-edit.component';
 
 @NgModule ( {
   declarations: [ UserComponent,
                   UserListComponent,
-                  UserListItemComponent
+                  UserListItemComponent,
+                  UserEditComponent
   ],
   imports: [
     CommonModule,
-    UtilsModule
+    UtilsModule,
+    RouterModule
   ],
   exports     : [ UserComponent ]
 } )
