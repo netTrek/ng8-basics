@@ -27,5 +27,9 @@
 <gfk-pipe-sample></gfk-pipe-sample>
 <gfk-rxjs-sample></gfk-rxjs-sample>
 -->
-
+<!--<gfk-loading *ngIf="$loading.count$ | async > 0"></gfk-loading>-->
+<gfk-loading *ngIf="$loading.count"></gfk-loading>
+<ng-container *ngIf="$err.errorMsg$ | async as msg">
+  <gfk-error-handling [msg]="msg"></gfk-error-handling>
+</ng-container>
 <gfk-user></gfk-user>

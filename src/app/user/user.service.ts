@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { UserModel } from './user-model';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { User } from './user';
 import { executeBrowserBuilder } from '@angular-devkit/build-angular';
 import { environment } from '../../environments/environment';
+import { ErrorHandlingService } from '../error-handling/error-handling.service';
 
 @Injectable ( {
   providedIn: 'root'
@@ -14,11 +15,11 @@ export class UserService {
   // nur zum spielen hat nichts mit dem UserService direkt zu tun!
   value$: BehaviorSubject<number> = new BehaviorSubject<number>( 123 );
 
-  constructor( private $http: HttpClient ) {
+  constructor( private $http: HttpClient, private $err: ErrorHandlingService ) {
   }
 
   getUsers(): Observable<User[]> {
-    return this.$http.get<User[]>( environment.api );
+    return this.$http.get<User[]>( environment.api + 'sdfdsf' );
   }
 }
 /*

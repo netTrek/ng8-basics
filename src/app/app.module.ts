@@ -14,6 +14,10 @@ import { RxjsSampleModule } from './rxjs-sample/rxjs-sample.module';
 import { MY_APP_NAME } from './app-token';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppAuthInterceptorService } from './app-auth-interceptor.service';
+import { AppLoadingInterceptorService } from './app-loading-interceptor.service';
+import { LoadingModule } from './loading/loading.module';
+import { ErrorHandlingModule } from './error-handling/error-handling.module';
+import { AppErrorInterceptorService } from './app-error-interceptor.service';
 
 registerLocaleData( localeDe ); // registrieren weiterer sprachen
 
@@ -31,12 +35,16 @@ registerLocaleData( localeDe ); // registrieren weiterer sprachen
     ContentSamplesModule,
     PipeSampleModule,
     RxjsSampleModule,
-    HttpClientModule
+    HttpClientModule,
+    LoadingModule,
+    ErrorHandlingModule
   ],
   providers: [
     { useValue: 'de', provide: LOCALE_ID }, // def. lang definieren.
     { useValue: 'gfk app', provide: MY_APP_NAME, multi: true }, // def. lang definieren.
-    { provide: HTTP_INTERCEPTORS, useClass: AppAuthInterceptorService, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: AppAuthInterceptorService, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: AppLoadingInterceptorService, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: AppErrorInterceptorService, multi: true }
   ], // Registreiren von Elementen in den Injector
   bootstrap: [AppComponent] // mit welcher Komponente soll in der index.html begonnen werden.
 })
