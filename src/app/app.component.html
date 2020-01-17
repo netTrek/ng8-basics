@@ -32,11 +32,24 @@
 <nav>
   <a routerLink="home" routerLinkActive="active">home</a> |
   <a routerLink="dash" routerLinkActive="active">dash</a> |
-  <a routerLink="user" routerLinkActive="active">user</a>
+  <a routerLink="user" routerLinkActive="active">user</a> |
+  <a [routerLink]="[ { outlets: { modal: ['modalA'] } } ]"
+     routerLinkActive="active">open ModalAComp</a>
+
+  <!--
+  -->
 </nav>
 <gfk-loading *ngIf="$loading.count"></gfk-loading>
 <ng-container *ngIf="$err.errorMsg$ | async as msg">
   <gfk-error-handling [msg]="msg"></gfk-error-handling>
 </ng-container>
+
 <router-outlet></router-outlet>
+
+<div *ngIf="showModal" class="modal-container">
+  <button (click)="closeModal()">x</button>
+  <router-outlet name="modal"></router-outlet>
+
+</div>
+
 <footer>footer</footer>

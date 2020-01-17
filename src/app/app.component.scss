@@ -4,3 +4,17 @@
     cursor: default;
   }
 }
+
+.modal-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(128, 128, 128, 0.98);
+  button {
+    position: absolute;
+    right: 3px;
+    top: 3px;
+  }
+}

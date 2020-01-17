@@ -19,6 +19,7 @@ import { LoadingModule } from './loading/loading.module';
 import { ErrorHandlingModule } from './error-handling/error-handling.module';
 import { AppErrorInterceptorService } from './app-error-interceptor.service';
 import { HomeModule } from './home/home.module';
+import { ModalCompsModule } from './modal-comps/modal-comps.module';
 
 registerLocaleData( localeDe ); // registrieren weiterer sprachen
 
@@ -39,7 +40,7 @@ registerLocaleData( localeDe ); // registrieren weiterer sprachen
     HttpClientModule,
     LoadingModule,
     ErrorHandlingModule,
-    HomeModule
+    HomeModule, ModalCompsModule
   ],
   providers: [
     { useValue: 'de', provide: LOCALE_ID }, // def. lang definieren.

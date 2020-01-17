@@ -4,8 +4,8 @@ import { MY_APP_NAME } from './app-token';
 import { LoadingService } from './loading/loading.service';
 import { ErrorHandlingService } from './error-handling/error-handling.service';
 import { HTTP_INTERCEPTORS, HttpInterceptor } from '@angular/common/http';
-import { NavigationEnd, Router } from '@angular/router';
-import { filter } from 'rxjs/operators';
+import { ActivationEnd, NavigationEnd, Router } from '@angular/router';
+import { distinctUntilChanged, filter, map, tap } from 'rxjs/operators';
 
 @Component ( {
   selector   : 'gfk-root',
@@ -14,6 +14,7 @@ import { filter } from 'rxjs/operators';
 } )
 export class AppComponent {
   title = 'GfK2020';
+  showModal = false;
   constructor( user: UserService,
                @Inject( MY_APP_NAME ) appName: string[],
                @Inject( HTTP_INTERCEPTORS ) interceptors: HttpInterceptor[],
@@ -24,10 +25,17 @@ export class AppComponent {
 
     console.warn ( interceptors );
     $router.events
-           .pipe( filter( event => event instanceof NavigationEnd) )
-           .subscribe( next => console.log( next ) );
+           .pipe(
+             filter( event => event instanceof ActivationEnd),
+             map ( event => (event as ActivationEnd).snapshot.outlet === 'modal' ),
+             distinctUntilChanged(),
+             tap ( n => console.log ( n ) )
+           )
+           .subscribe( next => this.showModal = next );
+  }
 
-    // user.subscribe( next => console.log ( next.value ));
+  closeModal() {
+    this.$router.navigate( [ { outlets: { modal:  null  } } ] );
   }
 }
 

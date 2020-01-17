@@ -8,10 +8,14 @@ import { UserEditComponent } from './user/user-edit/user-edit.component';
 import { UserAcrivateGuard } from './user/user-acrivate.guard';
 import { UserActivateGuard } from './user/user-activate.guard';
 import { UserEditResolveService } from './user/user-edit/user-edit-resolve.service';
+import { ModalAComponent } from './modal-comps/modal-a/modal-a.component';
 
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
+  { path: 'modalA',
+    component: ModalAComponent,
+    outlet: 'modal' },
   { path: 'home', component: HomeComponent },
   { path: 'user', component: UserComponent,
     canActivate: [
