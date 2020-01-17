@@ -12,7 +12,8 @@ import localeDe from '@angular/common/locales/de';
 import { registerLocaleData } from '@angular/common';
 import { RxjsSampleModule } from './rxjs-sample/rxjs-sample.module';
 import { MY_APP_NAME } from './app-token';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { AppAuthInterceptorService } from './app-auth-interceptor.service';
 
 registerLocaleData( localeDe ); // registrieren weiterer sprachen
 
@@ -34,7 +35,8 @@ registerLocaleData( localeDe ); // registrieren weiterer sprachen
   ],
   providers: [
     { useValue: 'de', provide: LOCALE_ID }, // def. lang definieren.
-    { useValue: 'gfk app', provide: MY_APP_NAME, multi: true } // def. lang definieren.
+    { useValue: 'gfk app', provide: MY_APP_NAME, multi: true }, // def. lang definieren.
+    { provide: HTTP_INTERCEPTORS, useClass: AppAuthInterceptorService, multi: true }
   ], // Registreiren von Elementen in den Injector
   bootstrap: [AppComponent] // mit welcher Komponente soll in der index.html begonnen werden.
 })
