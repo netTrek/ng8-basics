@@ -1,4 +1,4 @@
-<h3 *ngIf="selectedUser">{{selectedUser.fistname}}</h3>
+<h3 *ngIf="selectedUser">{{selectedUser.firstname}}</h3>
 
 <gfk-user-list-item *ngFor="let user of users; even as e; odd as o"
                     [user]="user"
@@ -7,5 +7,5 @@
                     [ngClass]="{even: e, odd: o}"
 ></gfk-user-list-item>
 <button *ngIf="this.selectedUser"
-        gfkDanger="Willst du den {{selectedUser.fistname}} wirklich löschen"
+        gfkDanger="Willst du den {{selectedUser.firstname}} wirklich löschen"
         (confirmed)="delSelected()">del selectedUsr</button>

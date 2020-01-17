@@ -1,3 +1,15 @@
 <hr>
-{{user | json}}
+<form [formGroup]="myForm">
+  <input type="text" formControlName="firstname" placeholder="firstname">
+  <span class="error" *ngIf="firstnameCtrl.errors?.required && firstnameCtrl.touched">
+    Bitte gib was ein ...
+  </span>
+  <input type="text" formControlName="lastname" placeholder="lastname">
+  <span class="error" *ngIf="lastnameCtrl.errors?.required && lastnameCtrl.touched">
+    Bitte gib was ein ...
+  </span>
+  <input type="number" formControlName="age" placeholder="age">
+  <button type="submit" [disabled]="myForm.invalid">submit</button>
+  <button type="reset" [disabled]="myForm.dirty">reset</button>
+</form>
 <hr>

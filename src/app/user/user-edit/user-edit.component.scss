@@ -1,0 +1,12 @@
+input {
+  width: 100%;
+  &.ng-touched.ng-invalid {
+    border-bottom-color: red;
+    border-style: inset;
+    border-width: 2px;
+  }
+}
+.error {
+  font-size: smaller;
+  color: red;
+}

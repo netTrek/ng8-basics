@@ -9,6 +9,7 @@ import { DangerDirective } from '../utils/danger/danger.directive';
 import { ReversePipe } from '../utils/reverse/reverse.pipe';
 import { RouterModule } from '@angular/router';
 import { UserEditComponent } from './user-edit/user-edit.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule ( {
   declarations: [ UserComponent,
@@ -19,7 +20,8 @@ import { UserEditComponent } from './user-edit/user-edit.component';
   imports: [
     CommonModule,
     UtilsModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ],
   exports     : [ UserComponent ]
 } )
