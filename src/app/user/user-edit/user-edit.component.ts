@@ -12,6 +12,8 @@ import { User } from '../user';
 } )
 export class UserEditComponent implements OnInit, OnDestroy {
 
+  dirty = true;
+
   id: number;
   compSub: Subscription = new Subscription ();
   user: User;
@@ -22,15 +24,22 @@ export class UserEditComponent implements OnInit, OnDestroy {
   ngOnInit() {
 
     this.compSub.add (
-      this.$route.paramMap.pipe (
-        map ( paramMap => + paramMap.get ( 'id' ) ),
-        tap ( id => this.id = id ),
-        switchMap ( id => this.$user.getUserById ( id ) )
-      )
-          .subscribe (
-            user => this.user = user
-          )
+      // this.viaParamMap ()
+      this.$route.data.pipe(
+        map ( data => data.user as User )
+      ).subscribe( user => this.user = user )
     );
+  }
+
+  private viaParamMap() {
+    return this.$route.paramMap.pipe (
+      map ( paramMap => + paramMap.get ( 'id' ) ),
+      tap ( id => this.id = id ),
+      switchMap ( id => this.$user.getUserById ( id ) )
+    )
+               .subscribe (
+                 user => this.user = user
+               );
   }
 
   ngOnDestroy(): void {

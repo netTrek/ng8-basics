@@ -21,10 +21,12 @@ export class AppComponent {
                public $err: ErrorHandlingService,
                private $router: Router
                ) {
+
     console.warn ( interceptors );
     $router.events
            .pipe( filter( event => event instanceof NavigationEnd) )
            .subscribe( next => console.log( next ) );
+
     // user.subscribe( next => console.log ( next.value ));
   }
 }
