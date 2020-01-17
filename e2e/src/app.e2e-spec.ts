@@ -13,6 +13,12 @@ describe('workspace-project App', () => {
     expect(page.getTitleText()).toEqual('gfk2020-test app is running!');
   });
 
+  fit('should display chg titel', async () => {
+    await page.navigateTo();
+    await page.getButton().click();
+    expect(page.getTitleText()).toEqual('gfk app is running!');
+  });
+
   afterEach(async () => {
     // Assert that there are no errors emitted from the browser
     const logs = await browser.manage().logs().get(logging.Type.BROWSER);

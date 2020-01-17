@@ -1,4 +1,4 @@
-import { browser, by, element } from 'protractor';
+import { browser, by, element, ElementFinder } from 'protractor';
 
 export class AppPage {
   navigateTo() {
@@ -7,5 +7,9 @@ export class AppPage {
 
   getTitleText() {
     return element(by.css('gfk-root .content span')).getText() as Promise<string>;
+  }
+
+  getButton() {
+    return element(by.css('button'));
   }
 }
