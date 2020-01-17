@@ -13,7 +13,7 @@ import { MY_APP_NAME } from '../app-token';
 } )
 export class RxjsSampleComponent implements OnInit {
   output = '';
-  value$ = this.user.getStreamByKey<number>( 'value' );
+  // value$ = this.user.getStreamByKey<number>( 'value' );
 
   constructor( public play: Play, public user: UserService, @Inject( MY_APP_NAME ) appName: string[] ) {
     console.warn ( appName );
@@ -45,9 +45,9 @@ export class RxjsSampleComponent implements OnInit {
     } ).pipe(
       tap(
         next => {
-          // this.user.value$.next( this.user.value$.getValue() + 1 );
-          const val = this.user.getValueOfKey<number>( 'value' );
-          this.user.update( 'value', val + 1 );
+          this.user.value$.next( this.user.value$.getValue() + 1 );
+          // const val = this.user.getValueOfKey<number>( 'value' );
+          // this.user.update( 'value', val + 1 );
         }
       ),
       take ( 2 )

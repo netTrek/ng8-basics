@@ -2,13 +2,30 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { UserModel } from './user-model';
 import { map } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { User } from './user';
+import { executeBrowserBuilder } from '@angular-devkit/build-angular';
+import { environment } from '../../environments/environment';
 
 @Injectable ( {
   providedIn: 'root'
 } )
+export class UserService {
+  // nur zum spielen hat nichts mit dem UserService direkt zu tun!
+  value$: BehaviorSubject<number> = new BehaviorSubject<number>( 123 );
+
+  constructor( private $http: HttpClient ) {
+  }
+
+  getUsers(): Observable<User[]> {
+    return this.$http.get<User[]>( environment.api );
+  }
+}
+/*
+
 export class UserService extends BehaviorSubject<UserModel> {
 
-  constructor() {
+  constructor( private $http: HttpClient ) {
     super ( { value: 123 } );
   }
 
@@ -24,4 +41,9 @@ export class UserService extends BehaviorSubject<UserModel> {
     this.next ( { ...this.value, [ key ]: newVal } );
   }
 
+  getUsers(): Observable<User[]> {
+    return this.$http.get<User[]>( environment.api );
+  }
+
 }
+*/

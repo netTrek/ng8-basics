@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'gfk-user-list',
@@ -9,15 +10,14 @@ import { User } from '../user';
 export class UserListComponent implements OnInit {
 
   users: User[] = [
-    {fistname: 'peter', lastname: 'müller' },
-    {fistname: 'petra', lastname: 'mayer' }
   ];
 
   selectedUser: User;
 
-  constructor() { }
+  constructor( private $user: UserService ) { }
 
   ngOnInit() {
+    this.$user.getUsers().subscribe( users => this.users = users );
   }
 
   selectedUsr( user: User ) {

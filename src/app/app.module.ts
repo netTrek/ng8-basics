@@ -12,6 +12,7 @@ import localeDe from '@angular/common/locales/de';
 import { registerLocaleData } from '@angular/common';
 import { RxjsSampleModule } from './rxjs-sample/rxjs-sample.module';
 import { MY_APP_NAME } from './app-token';
+import { HttpClientModule } from '@angular/common/http';
 
 registerLocaleData( localeDe ); // registrieren weiterer sprachen
 
@@ -21,14 +22,15 @@ registerLocaleData( localeDe ); // registrieren weiterer sprachen
   ],
   imports: [ // abh. Module importieren
     BrowserModule,
+    // weil ng new  mit --routing
     AppRoutingModule,
     UserModule,
     BindingSampleModule,
     UtilsModule,
     ContentSamplesModule,
     PipeSampleModule,
-    RxjsSampleModule
-    // weil ng new  mit --routing
+    RxjsSampleModule,
+    HttpClientModule
   ],
   providers: [
     { useValue: 'de', provide: LOCALE_ID }, // def. lang definieren.

@@ -11,7 +11,7 @@ export class AppComponent {
   title = 'GfK2020';
   constructor( user: UserService, @Inject( MY_APP_NAME ) appName: string[] ) {
     console.warn ( appName );
-    user.subscribe( next => console.log ( next.value ));
+    // user.subscribe( next => console.log ( next.value ));
   }
 }
 
