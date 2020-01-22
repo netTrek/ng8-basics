@@ -1,6 +1,11 @@
-p {
-  color: #88c134;
+:host {
+  background-color: chartreuse;
+  display: block;
+  ::ng-deep p {
+    color: blue;
+  }
 }
+
 
 h1 {
   color: red
