@@ -1,4 +1,7 @@
-<h3>selected:= {{selectedUser?.firstName}} </h3>
+<h3 *ngIf="selectedUser; else call4Selection">selected:= {{selectedUser?.firstName}} </h3>
+<ng-template #call4Selection>
+  <h3>bitte user auswählen</h3>
+</ng-template>
 <msg-user-list-item
   (selectedUsr)="setSelectedUser($event)"
   *ngFor="let user of this.userlist"
@@ -8,12 +11,15 @@
 </msg-user-list-item>
 <input #first [value]="selectedUser?.firstName" placeholder="firstname" type="text">
 <input #last [value]="selectedUser?.lastName" placeholder="lastname" type="text">
-<div [class.hidde]="selectedUser">
+<div *ngIf="!selectedUser; else showNewPanel">
   <button
     (click)="addNewUserWith (first.value, last.value)">+
   </button>
 </div>
-<div [class.hidde]="!selectedUser">
-  <button (click)="updateSelectedUser (first.value, last.value)">~</button>
-  <button (click)="deleteSelected()">-</button>
-</div>
+<ng-template #showNewPanel>
+  <div>
+    <button (click)="updateSelectedUser (first.value, last.value)">~</button>
+    <button (confirmed)="deleteSelected()" msgDangerBtn="willst du den {{selectedUser.firstName}} wirklich löschen">-
+    </button>
+  </div>
+</ng-template>

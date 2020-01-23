@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { UserModule } from './user/user.module';
 import { BindingSampleModule } from './binding-sample/binding-sample.module';
 import { UtilsModule } from './utils/utils.module';
+import { DirectiveSampleModule } from './directive-sample/directive-sample.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { UtilsModule } from './utils/utils.module';
     AppRoutingModule,
     UserModule,
     BindingSampleModule,
-    UtilsModule
+    UtilsModule,
+    DirectiveSampleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

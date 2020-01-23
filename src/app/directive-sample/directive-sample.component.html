@@ -1,0 +1,57 @@
+<p>directive-sample works! {{show}}</p>
+
+<ul>
+  <li *ngFor="let val of [1,2,3]; index as i; count as c; first as f; even as e; odd as o"
+      [ngClass]="{even: e, odd: o}">
+    <!--
+    [class.even]="e" [class.odd]="o">
+    -->
+    {{val}} # {{i}} count {{c}} isFirst {{f}} isEven {{e}} isOdd {{o}}
+  </li>
+  <li [class]="classList" class="even">combine even and underline css classes</li>
+  <li [ngClass]="classList" class="even">combine even and underline css classes</li>
+</ul>
+
+<!--
+If else so nicht!
+<div *ngIf="show">show is true</div>
+<div *ngIf="!show">show is false</div>
+
+-->
+<div *ngIf="show; else showIsFals">show is true</div>
+<ng-template #showIsFals>
+  <div>show is false</div>
+</ng-template>
+
+<!--
+<div *ngIf="show">show is true</div>
+das macht der Kompiler daraus
+<ng-template [ngIf]="show">
+  <div>hello world</div>
+</ng-template>
+-->
+
+<!--So wenn meherer hintereinader das gleiche if Statement haben
+<ng-template [ngIf]="show">
+  <user-name></user-name>
+  <user-avatar></user-avatar>
+  <user-address></user-address>
+</ng-template>
+-->
+<!--
+zwei structruelle Dir
+<ul>
+  <li *ngFor="let ind of [1,2,3]" *ngIf="ind%2===0"></li>
+</ul>
+-->
+<!--
+so ist es gut!
+<ul>
+  <ng-container *ngFor="let ind of [1,2,3]">
+    <li *ngIf="ind%2===0"></li>
+  </ng-container>
+</ul>
+-->
+
+
+<button (click)="showToggle()">show toggle</button>

@@ -18,6 +18,7 @@ export class UserListeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.selectedUser = this.userlist[ 0 ];
   }
 
   setSelectedUser( user: User ) {

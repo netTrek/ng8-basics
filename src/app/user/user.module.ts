@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { UserComponent } from './user.component';
 import { UserListeComponent } from './user-liste/user-liste.component';
 import { UserListItemComponent } from './user-liste/user-list-item/user-list-item.component';
+import { UtilsModule } from '../utils/utils.module';
 
 @NgModule( {
   declarations: [UserComponent,
@@ -10,7 +11,8 @@ import { UserListItemComponent } from './user-liste/user-list-item/user-list-ite
                  UserListItemComponent
   ],
   imports     : [
-    CommonModule
+    CommonModule,
+    UtilsModule
   ],
   exports     : [
     UserComponent
