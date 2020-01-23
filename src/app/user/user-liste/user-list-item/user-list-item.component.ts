@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component ( {
   selector   : 'msg-user-list-item',
@@ -6,7 +6,10 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls  : ['./user-list-item.component.scss']
 } )
 export class UserListItemComponent implements OnInit {
-  @Input () username = '';
+  // werte werden von außen (Eltern) übergeben
+  @Input () username                           = '';
+  // werte nach außen (an Eltern) übergeben
+  @Output () selectedUsr: EventEmitter<string> = new EventEmitter<string> ();
 
   constructor() {
   }
@@ -14,4 +17,7 @@ export class UserListItemComponent implements OnInit {
   ngOnInit() {
   }
 
+  handleClick() {
+    this.selectedUsr.emit ( this.username );
+  }
 }

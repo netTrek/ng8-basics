@@ -10,6 +10,7 @@ export class UserListeComponent implements OnInit {
   usernames: string[] = ['peter',
                          'paula'
   ];
+  selectedUsername: string;
 
   constructor() {
   }
@@ -17,4 +18,7 @@ export class UserListeComponent implements OnInit {
   ngOnInit() {
   }
 
+  setSelectedUsername( username: string ) {
+    this.selectedUsername = username;
+  }
 }

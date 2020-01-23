@@ -1,4 +1,6 @@
+<h3>selected:= {{selectedUsername}}</h3>
 <msg-user-list-item
   *ngFor="let val of this.usernames"
+  (selectedUsr)="setSelectedUsername($event)"
   [username]="val">
 </msg-user-list-item>
