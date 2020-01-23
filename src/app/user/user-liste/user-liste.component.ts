@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../user';
 
 @Component ( {
   selector   : 'msg-user-liste',
@@ -7,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
 } )
 export class UserListeComponent implements OnInit {
 
-  usernames: string[] = ['peter',
-                         'paula'
+  userlist: User[] = [
+    { firstName: 'saban', lastName: 'ünlü' },
+    { firstName: 'heike', lastName: 'müller' }
   ];
-  selectedUsername: string;
+  selectedUser: User;
 
   constructor() {
   }
@@ -18,7 +20,7 @@ export class UserListeComponent implements OnInit {
   ngOnInit() {
   }
 
-  setSelectedUsername( username: string ) {
-    this.selectedUsername = username;
+  setSelectedUser( user: User ) {
+    this.selectedUser = user;
   }
 }
