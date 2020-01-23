@@ -27,4 +27,28 @@ export class UserListeComponent implements OnInit {
       this.selectedUser = user;
     }
   }
+
+  addNewUserWith( firstName: string, lastName: string ) {
+    this.selectedUser = { firstName, lastName };
+    this.userlist.push ( this.selectedUser );
+  }
+
+  deleteSelected() {
+    this.userlist.splice (
+      this.userlist.indexOf ( this.selectedUser ),
+      1
+    );
+    // schau dir das an wenn es regnet in polyfill.ts
+    // this.userlist.delete( this.selectedUser );
+    this.selectedUser = undefined;
+  }
+
+  updateSelectedUser( firstName: string, lastName: string ) {
+    const userInList     = this.userlist[
+      this.userlist.indexOf ( this.selectedUser )
+      ];
+    userInList.firstName = firstName;
+    userInList.lastName  = lastName;
+    this.selectedUser    = userInList;
+  }
 }

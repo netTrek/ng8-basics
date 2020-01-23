@@ -6,3 +6,14 @@
   [user]="user"
 >
 </msg-user-list-item>
+<input #first [value]="selectedUser?.firstName" placeholder="firstname" type="text">
+<input #last [value]="selectedUser?.lastName" placeholder="lastname" type="text">
+<div [class.hidde]="selectedUser">
+  <button
+    (click)="addNewUserWith (first.value, last.value)">+
+  </button>
+</div>
+<div [class.hidde]="!selectedUser">
+  <button (click)="updateSelectedUser (first.value, last.value)">~</button>
+  <button (click)="deleteSelected()">-</button>
+</div>

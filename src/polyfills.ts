@@ -55,9 +55,24 @@
 /***************************************************************************************************
  * Zone JS is required by default for Angular itself.
  */
-import 'zone.js/dist/zone';  // Included with Angular CLI.
-
+import 'zone.js/dist/zone'; // Included with Angular CLI.
 
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
+
+declare global {
+  interface Array<T> {
+    delete( elem: T ): Array<T>;
+  }
+}
+
+if ( !Array.prototype.delete ) {
+  Array.prototype.delete = function <T>( this: T[], elem: T ): T[] {
+    const ind = this.indexOf ( elem );
+    if ( ind !== - 1 ) {
+      this.splice ( ind, 1 );
+    }
+    return this;
+  };
+}
