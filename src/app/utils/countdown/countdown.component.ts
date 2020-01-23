@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 @Component ( {
   selector   : 'msg-countdown',
   templateUrl: './countdown.component.html',
   styleUrls  : ['./countdown.component.scss']
 } )
-export class CountdownComponent implements OnInit {
+export class CountdownComponent implements OnInit, OnDestroy {
 
   percent  = 100;
   duration = 4000;
@@ -21,6 +21,10 @@ export class CountdownComponent implements OnInit {
         this.killInterval ();
       }
     }, + this.duration / 20 );
+  }
+
+  ngOnDestroy(): void {
+    this.killInterval ();
   }
 
   private killInterval() {
