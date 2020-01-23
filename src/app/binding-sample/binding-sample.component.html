@@ -3,17 +3,50 @@
   <li>ausdruck</li>
   <li>prefix {{wert}} sufix {{nocheinwert}}</li>
   <li>{{num + 1}}</li>
-  <li>{{getWert ()}}</li>
-  <!--
-  <li>{{getWert ('toll oder ..... ')}}</li>
-  <li>{{getWert ( num + ' ' )}}</li>
-  -->
+  <li>{{getWert()}}</li>
+  <li>{{getWert('toll oder ..... ')}}</li>
+  <li>{{getWert(num + ' ')}}</li>
   <li>
     <img (click)="chgImg()" src="assets/images/{{file}}" alt="">
   </li>
   <li>eigenschaft</li>
+  <li>
+    <img [alt]="imgAlt" [src]="fileSrc" width="10%">
+  </li>
+  <li>
+    <div>{{nocheinwert}}</div>
+  </li>
+  <li>
+    <div [innerText]="nocheinwert"></div>
+  </li>
+  <li>
+    <div [innerHTML]="nocheinwert"></div>
+  </li>
   <li>attr</li>
+  <li>
+    <img [attr.alt]="imgAlt" [attr.aria-label]="ariaLabel" [attr.src]="fileSrc" width="10%">
+  </li>
   <li>style</li>
+  <li [style.color]="fontColor">hello world</li>
+  <li>
+    <div [style.backgroundColor]="bg"
+         [style.width]="width + '%'">hello
+    </div>
+    <div [style.backgroundColor]="bg"
+         [style.width.%]="width">hello
+    </div>
+  </li>
   <li>class</li>
+  <li class="bold">bold</li>
+  <li class="red">red</li>
+  <li [class]="fontColor" class="bold">red ... bold wird durch [class] überschrieben</li>
+  <li (click)="toggleSelection()"
+      [class.ausgewahlt]="selected">
+    {{selected ? 'isSelected' : 'notSelected'}}
+  </li>
   <li>ereigniss</li>
+  <li (click)="handleClick()">click mich</li>
+  <li (click)="selected = !selected">so bitte nicht arbeiten ::: selektiere mich</li>
+  <li (click)="handleClickWithPayload ( num, 'hallo' )">klick mit payload</li>
+  <li (click)="handleMouseClick( $event )">handle with EventPayload</li>
 </ul>
