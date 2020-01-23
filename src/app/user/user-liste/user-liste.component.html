@@ -1,1 +1,4 @@
-<p>user-liste works!</p>
+<msg-user-list-item
+  *ngFor="let val of this.usernames"
+  [username]="val">
+</msg-user-list-item>
