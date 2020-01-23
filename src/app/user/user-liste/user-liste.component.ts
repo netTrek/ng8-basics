@@ -9,8 +9,8 @@ import { User } from '../user';
 export class UserListeComponent implements OnInit {
 
   userlist: User[] = [
-    { firstName: 'saban', lastName: 'ünlü' },
-    { firstName: 'heike', lastName: 'müller' }
+    { firstName: 'saban', lastName: 'ünlü' }/*,
+    { firstName: 'heike', lastName: 'müller' }*/
   ];
   selectedUser: User;
 
@@ -21,6 +21,10 @@ export class UserListeComponent implements OnInit {
   }
 
   setSelectedUser( user: User ) {
-    this.selectedUser = user;
+    if ( user === this.selectedUser ) {
+      this.selectedUser = undefined;
+    } else {
+      this.selectedUser = user;
+    }
   }
 }
