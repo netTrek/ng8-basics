@@ -1,4 +1,15 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  HostBinding,
+  HostListener,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChange,
+  SimpleChanges
+} from '@angular/core';
 import { User } from '../../user';
 
 @Component ( {
@@ -6,22 +17,16 @@ import { User } from '../../user';
   templateUrl: './user-list-item.component.html',
   styleUrls  : ['./user-list-item.component.scss']
 } )
-export class UserListItemComponent implements OnInit {
+export class UserListItemComponent implements OnInit, OnChanges {
   // werte nach außen (an Eltern) übergeben
   @Output () selectedUsr: EventEmitter<User> = new EventEmitter<User> ();
-  // tslint:disable-next-line
-  private _user: User;
-
-  // werte werden von außen (Eltern) übergeben
-
-  get user(): User {
-    return this._user;
-  }
+  @Input () user: User;
 
   @Input ()
-  set user( value: User ) {
-    this._user = value;
-  }
+  @HostBinding ( 'class.selected' )
+  selected = false; // [class.selected]="selected"
+
+  // werte werden von außen (Eltern) übergeben
 
   constructor() {
   }
@@ -29,10 +34,18 @@ export class UserListItemComponent implements OnInit {
   ngOnInit() {
   }
 
+  @HostListener ( 'click' )
   handleClick() {
-    setTimeout ( () => {
-      this.user = { firstName: 'franz', lastName: 'Mayer' };
-    }, 3000 );
     this.selectedUsr.emit ( this.user );
+  }
+
+  ngOnChanges( changes: SimpleChanges ): void {
+    if ( changes.hasOwnProperty ( 'selected' ) ) {
+      const selectedSC: SimpleChange = changes.selected;
+      if ( selectedSC.firstChange ) {
+        // console.log ( `selected Status erstmals gesetzt` );
+      }
+      // console.log ( selectedSC.currentValue );
+    }
   }
 }
