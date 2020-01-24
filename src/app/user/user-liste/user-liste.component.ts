@@ -1,24 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
+import { AppDummyService } from '../../app-dummy-service';
+import { UserService } from '../user.service';
 
 @Component ( {
   selector   : 'msg-user-liste',
   templateUrl: './user-liste.component.html',
-  styleUrls  : ['./user-liste.component.scss']
+  styleUrls  : ['./user-liste.component.scss'],
+  providers  : [AppDummyService]
 } )
 export class UserListeComponent implements OnInit {
-
-  userlist: User[] = [
-    { firstName: 'saban', lastName: 'ünlü' },
-    { firstName: 'heike', lastName: 'müller' }
-  ];
   selectedUser: User;
 
-  constructor() {
+  constructor( public $dummy: AppDummyService,
+               public $user: UserService ) {
   }
 
   ngOnInit() {
-    this.selectedUser = this.userlist[ 0 ];
+    this.selectedUser = this.$user.userlist[ 0 ];
   }
 
   setSelectedUser( user: User ) {
@@ -28,28 +27,24 @@ export class UserListeComponent implements OnInit {
       this.selectedUser = user;
     }
   }
-
   addNewUserWith( firstName: string, lastName: string ) {
-    this.selectedUser = { firstName, lastName };
-    this.userlist.push ( this.selectedUser );
+    this.selectedUser =
+      this.$user.addUser ( { firstName, lastName } );
   }
 
   deleteSelected() {
-    this.userlist.splice (
-      this.userlist.indexOf ( this.selectedUser ),
-      1
-    );
-    // schau dir das an wenn es regnet in polyfill.ts
-    // this.userlist.delete( this.selectedUser );
-    this.selectedUser = undefined;
+    if ( this.$user.deleteUser ( this.selectedUser ) ) {
+      this.selectedUser = undefined;
+    }
   }
 
   updateSelectedUser( firstName: string, lastName: string ) {
-    const userInList     = this.userlist[
-      this.userlist.indexOf ( this.selectedUser )
-      ];
-    userInList.firstName = firstName;
-    userInList.lastName  = lastName;
-    this.selectedUser    = userInList;
+    this.selectedUser = this.$user.editUser (
+      this.selectedUser, firstName, lastName
+    );
+  }
+
+  increment() {
+    this.$dummy.val ++;
   }
 }

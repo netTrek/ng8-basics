@@ -2,9 +2,10 @@
 <ng-template #call4Selection>
   <h3>bitte user auswählen</h3>
 </ng-template>
+<div (click)="increment()">{{ $dummy.val }}</div>
 <msg-user-list-item
   (selectedUsr)="setSelectedUser($event)"
-  *ngFor="let user of this.userlist"
+  *ngFor="let user of this.$user.userlist"
   [selected]="selectedUser === user"
   [user]="user"
 >

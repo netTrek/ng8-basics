@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AppDummyService } from './app-dummy-service';
 
 @Component ( {
   selector   : 'msg-root',
@@ -7,4 +8,7 @@ import { Component } from '@angular/core';
 } )
 export class AppComponent {
   title = 'msg2020';
+
+  constructor( public $dummy: AppDummyService ) {
+  }
 }
