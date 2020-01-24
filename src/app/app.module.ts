@@ -7,7 +7,6 @@ import { UserModule } from './user/user.module';
 import { BindingSampleModule } from './binding-sample/binding-sample.module';
 import { UtilsModule } from './utils/utils.module';
 import { DirectiveSampleModule } from './directive-sample/directive-sample.module';
-import { RxjsSampleModule } from './rxjs-sample/rxjs-sample.module';
 import { PipeSampleModule } from './pipe-sample/pipe-sample.module';
 
 import localeDeData from '@angular/common/locales/de';
@@ -27,7 +26,6 @@ registerLocaleData ( localeDeData );
     BindingSampleModule,
     UtilsModule,
     DirectiveSampleModule,
-    RxjsSampleModule,
     PipeSampleModule,
     HttpClientModule
   ],

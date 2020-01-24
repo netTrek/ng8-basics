@@ -1,0 +1,7 @@
+:host {
+  ::ng-deep a {
+    &.activated-route-link {
+      color: red;
+    }
+  }
+}
