@@ -1,0 +1,14 @@
+/*
+li.strong.highlight-search {
+  color: yellow;
+}
+*/
+:host {
+  li {
+    ::ng-deep strong {
+      &.highlight-search {
+        color: #6ce871;
+      }
+    }
+  }
+}

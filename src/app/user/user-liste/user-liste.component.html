@@ -1,4 +1,4 @@
-<h3 *ngIf="selectedUser; else call4Selection">selected:= {{selectedUser?.firstName}} </h3>
+<h3 *ngIf="selectedUser; else call4Selection">selected:= {{selectedUser?.firstName | uppercase}} </h3>
 <ng-template #call4Selection>
   <h3>bitte user auswählen</h3>
 </ng-template>

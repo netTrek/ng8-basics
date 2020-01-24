@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls  : ['./pipe-sample.component.scss']
 } )
 export class PipeSampleComponent implements OnInit {
+  sampleStr  = 'Saban Ünlü';
+  sampleNum  = Math.PI;
+  sampleDate = new Date ();
 
   constructor() {
   }

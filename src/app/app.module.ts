@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +9,11 @@ import { UtilsModule } from './utils/utils.module';
 import { DirectiveSampleModule } from './directive-sample/directive-sample.module';
 import { RxjsSampleModule } from './rxjs-sample/rxjs-sample.module';
 import { PipeSampleModule } from './pipe-sample/pipe-sample.module';
+
+import localeDeData from '@angular/common/locales/de';
+import { registerLocaleData } from '@angular/common';
+
+registerLocaleData ( localeDeData );
 
 @NgModule ( {
   declarations: [
@@ -24,7 +29,9 @@ import { PipeSampleModule } from './pipe-sample/pipe-sample.module';
     RxjsSampleModule,
     PipeSampleModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers   : [
+    { provide: LOCALE_ID, useValue: 'de' }
+  ],
+  bootstrap   : [AppComponent]
 })
 export class AppModule { }

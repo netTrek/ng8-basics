@@ -1,1 +1,33 @@
 <p>pipe-sample works!</p>
+<ul>
+  <!--
+  <li><strong>date</strong></li>
+  <li>{{sampleDate}}</li>
+  <li>{{sampleDate | date}}</li>
+  <li>{{sampleDate | date : 'yyyy' }}</li>
+  <li>{{sampleDate | date : 'MMM/yyyy' }}</li>
+  <li>{{sampleDate | date : 'long' }}</li>
+  <li>{{sampleDate | date : 'long' : '-0700' }}</li>
+  <li>{{sampleDate | date : 'long' : '-0700' : 'en' }}</li>
+  <li>{{sampleDate | date : 'long' : '-0700' : 'de' }}</li>
+-->
+  <li><strong>string</strong></li>
+  <li>{{sampleStr}}</li>
+  <li [innerHTML]="sampleStr | highlight : 'sab'"></li>
+  <li>{{sampleStr | uppercase}}</li>
+  <!--
+    <li><strong>number</strong></li>
+    <li>{{sampleNum}}</li>
+    <li>{{sampleNum | currency }}</li>
+    <li>{{sampleNum | currency : 'EUR' }}</li>
+    <li>{{sampleNum | currency : 'EUR' : 'symbol' }}</li>
+    <li>{{sampleNum | currency : 'EUR' : 'code' }}</li>
+    <li>{{sampleNum | currency : 'EUR' : 'code' : '.2-5' }}</li>
+    <li>{{1.2 | currency : 'EUR' : 'code' : '.2-5' }}</li>
+    <li>{{1.2 | currency : 'EUR' : 'code' : '.2-5' : 'en' }}</li>
+    <li>{{sampleNum | number }}</li>
+    <li>{{sampleNum | number : '3.2-2'}}</li>
+    <li>{{sampleNum * 1000 | number : '3.2-2'}}</li>
+    <li>{{sampleNum * 1000 | number : '3.2-2' : 'en' }}</li>
+    -->
+</ul>
