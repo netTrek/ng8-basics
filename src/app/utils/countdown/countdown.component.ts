@@ -23,7 +23,7 @@ export class CountdownComponent implements OnInit, OnDestroy {
       .pipe (
         take ( 20 )
       )
-      .subscribe ( next => this.percent -= 5 );
+      .subscribe ( n => this.percent -= 5 );
 
     /*
     this.intervalID = setInterval ( () => {
