@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 import { User } from './user';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable ( {
   providedIn: 'root'
 } )
 export class UserService {
-  userlist: User[] = [
-    { firstName: 'saban', lastName: 'ünlü' },
-    { firstName: 'heike', lastName: 'müller' }
-  ];
+  static readonly URI = 'http://localhost:3000/users/';
+  userlist: User[]    = [];
 
-  constructor() {
+  constructor( private $http: HttpClient ) {
+    this.updateUserList ();
   }
 
   addUser( user: User ): User {
@@ -37,5 +37,12 @@ export class UserService {
       user.age       = age;
     }
     return target;
+  }
+
+  private updateUserList() {
+    this.$http.get<User[]> ( UserService.URI )
+        .subscribe (
+          receivedUsers => this.userlist = receivedUsers
+        );
   }
 }
