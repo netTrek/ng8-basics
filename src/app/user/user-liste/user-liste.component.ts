@@ -28,8 +28,10 @@ export class UserListeComponent implements OnInit {
     }
   }
   addNewUserWith( firstName: string, lastName: string ) {
-    this.selectedUser =
-      this.$user.addUser ( { firstName, lastName } );
+    this.$user.addUser ( { firstName, lastName } )
+        .subscribe (
+          receivedUsr => this.selectedUser = receivedUsr
+        );
   }
 
   deleteSelected() {

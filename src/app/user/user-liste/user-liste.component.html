@@ -6,7 +6,7 @@
 <msg-user-list-item
   (selectedUsr)="setSelectedUser($event)"
   *ngFor="let user of this.$user.userlist"
-  [selected]="selectedUser === user"
+  [selected]="selectedUser?.id === user?.id"
   [user]="user"
 >
 </msg-user-list-item>

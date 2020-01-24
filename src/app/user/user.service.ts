@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { User } from './user';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Injectable ( {
   providedIn: 'root'
@@ -13,9 +15,11 @@ export class UserService {
     this.updateUserList ();
   }
 
-  addUser( user: User ): User {
-    this.userlist.push ( user );
-    return user;
+  addUser( user: User ): Observable<User> {
+    return this.$http.post<User> ( UserService.URI, user )
+               .pipe (
+                 tap ( n => this.updateUserList () )
+               );
   }
 
   deleteUser( user: User ): boolean {
