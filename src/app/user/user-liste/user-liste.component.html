@@ -19,7 +19,7 @@
 <ng-template #showNewPanel>
   <div>
     <button (click)="updateSelectedUser (first.value, last.value)">~</button>
-    <button (confirmed)="deleteSelected()" msgDangerBtn="willst du den {{selectedUser.firstName}} wirklich löschen">-
+    <button (confirmed)="deleteSelected()" msgDangerBtn="willst du den {{selectedUser?.firstName}} wirklich löschen">-
     </button>
   </div>
 </ng-template>

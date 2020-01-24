@@ -7,18 +7,22 @@ import { UserModule } from './user/user.module';
 import { BindingSampleModule } from './binding-sample/binding-sample.module';
 import { UtilsModule } from './utils/utils.module';
 import { DirectiveSampleModule } from './directive-sample/directive-sample.module';
+import { RxjsSampleModule } from './rxjs-sample/rxjs-sample.module';
+import { PipeSampleModule } from './pipe-sample/pipe-sample.module';
 
-@NgModule({
+@NgModule ( {
   declarations: [
     AppComponent
   ],
-  imports: [
+  imports     : [
     BrowserModule,
     AppRoutingModule,
     UserModule,
     BindingSampleModule,
     UtilsModule,
-    DirectiveSampleModule
+    DirectiveSampleModule,
+    RxjsSampleModule,
+    PipeSampleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

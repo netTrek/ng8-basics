@@ -5,11 +5,9 @@ import { Directive, EventEmitter, HostBinding, HostListener, Input, Output } fro
 } )
 export class DangerBtnDirective {
   @HostBinding ( 'style.backgroundColor' )
-  backgroundColor = 'red';
-
+  backgroundColor                    = 'red';
   @HostBinding ( 'style.fontWeight' )
-  fontWeight = 'bolder';
-
+  fontWeight                         = 'bolder';
   @HostBinding ( 'style.fontSize' )
   fontSize                           = 'larger';
   @Output ()
@@ -20,7 +18,6 @@ export class DangerBtnDirective {
   constructor() {
     console.log ( 'msgDangerBtn generated' );
   }
-
   @HostListener ( 'click' )
   clickHandler() {
     const msg = this.msgDangerBtn === '' ? 'willst du wirklich ...' : this.msgDangerBtn;
