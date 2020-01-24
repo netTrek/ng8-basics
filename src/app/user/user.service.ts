@@ -22,25 +22,21 @@ export class UserService {
                );
   }
 
-  deleteUser( user: User ): boolean {
-    const ind = this.userlist.indexOf ( user );
-    if ( ind !== - 1 ) {
-      this.userlist.splice ( ind, 1 );
-      return true;
-    }
-    return false;
+  deleteUser( user: User ): Observable<void> {
+    return this.$http
+               .delete<void> ( UserService.URI + user.id )
+               .pipe (
+                 tap ( n => this.updateUserList () )
+               );
   }
 
-  editUser( target: User, firstName: string,
-            lastName: string, age?: number ): User {
-    const ind = this.userlist.indexOf ( target );
-    if ( ind !== - 1 ) {
-      const user     = this.userlist[ ind ];
-      user.firstName = firstName;
-      user.lastName  = lastName;
-      user.age       = age;
-    }
-    return target;
+  editUser( user: User ): Observable<User> {
+    return this.$http
+               .put<User> ( UserService.URI + user.id
+                 , user )
+               .pipe (
+                 tap ( n => this.updateUserList () )
+               );
   }
 
   private updateUserList() {

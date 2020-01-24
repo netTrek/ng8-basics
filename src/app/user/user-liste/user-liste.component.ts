@@ -35,15 +35,19 @@ export class UserListeComponent implements OnInit {
   }
 
   deleteSelected() {
-    if ( this.$user.deleteUser ( this.selectedUser ) ) {
-      this.selectedUser = undefined;
-    }
+    this.$user.deleteUser ( this.selectedUser )
+        .subscribe (
+          n => this.selectedUser = undefined
+        );
   }
 
   updateSelectedUser( firstName: string, lastName: string ) {
-    this.selectedUser = this.$user.editUser (
-      this.selectedUser, firstName, lastName
-    );
+    this.$user.editUser (
+      { ...this.selectedUser, firstName, lastName }
+    )
+        .subscribe (
+          receivedUsr => this.selectedUser = receivedUsr
+        );
   }
 
   increment() {
