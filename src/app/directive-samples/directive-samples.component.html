@@ -1,0 +1,40 @@
+<p>directive-samples works!</p>
+
+
+<button (click)="toggle()">toggle show</button>
+<img *ngIf="show; else elseCase" alt="cat"
+     src="./assets/img/cat1.jpeg"
+     width="20%">
+
+<ng-template #elseCase>
+  <img alt="cat" src="./assets/img/cat2.jpeg" width="20%">
+</ng-template>
+
+
+<!--
+
+soNieMalsMachen
+
+<input type="text"
+       name="soNieMalsMachen"
+       #inputElem
+>
+<button (click)="send(inputElem.value)">send input value</button>
+-->
+
+<!--
+
+<ng-template [ngIf]="show">
+  <img src="./assets/img/cat1.jpeg" alt="cat"  width="20%">
+</ng-template>
+
+<ng-container *ngIf="show">
+  <img src="./assets/img/cat1.jpeg" alt="cat"  width="20%">
+</ng-container>
+
+<ng-template [ngIf]="show">
+  <h1>ksahdjhas</h1>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias consequatur eligendi id illum in incidunt numquam odit ratione soluta sunt! Exercitationem libero molestiae ut. Asperiores corporis fugit pariatur quam soluta?</p>
+  <button>kjh</button>
+</ng-template>
+-->
