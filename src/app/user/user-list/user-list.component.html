@@ -1,7 +1,8 @@
 <p>user-list works!</p>
 <cis-user-list-item
-  *ngFor="let user of userList">
-
-  {{user | json}}
-
+  (selectUser)="selectUsr( user )"
+  *ngFor="let user of userList"
+  [class.selected]="user === selectedUser"
+  [user]="user"
+>
 </cis-user-list-item>

@@ -18,6 +18,7 @@ export class UserListComponent implements OnInit {
       lastname : 'müller'
     }
   ];
+  selectedUser: User;
 
   constructor() {
   }
@@ -25,4 +26,7 @@ export class UserListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  selectUsr( user: User ) {
+    this.selectedUser = user;
+  }
 }
