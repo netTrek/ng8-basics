@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange, SimpleChanges } from '@angular/core';
 import { User } from '../../user';
 
 @Component ( {
@@ -6,18 +6,9 @@ import { User } from '../../user';
   templateUrl: './user-list-item.component.html',
   styleUrls  : ['./user-list-item.component.scss']
 } )
-export class UserListItemComponent implements OnInit {
-  private _user: User;
-
-  get user(): User {
-    return this._user;
-  }
-
+export class UserListItemComponent implements OnInit, OnChanges {
   @Input ()
-  set user( value: User ) {
-    console.log ( 'new user is := ', value );
-    this._user = value;
-  }
+  user: User;
 
   @Output ()
   selectUser: EventEmitter<User> =
@@ -31,5 +22,18 @@ export class UserListItemComponent implements OnInit {
 
   select() {
     this.selectUser.emit ( this.user );
+  }
+
+  ngOnChanges( changes: SimpleChanges ): void {
+    this.checkForNewUserVal ( changes );
+  }
+
+  private checkForNewUserVal( changes: SimpleChanges ) {
+    if ( changes.hasOwnProperty ( 'user' ) ) {
+      const userPayload: SimpleChange = changes.user;
+      if ( userPayload.firstChange ) {
+        console.log ( 'first', userPayload.currentValue );
+      }
+    }
   }
 }

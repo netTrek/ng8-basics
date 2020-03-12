@@ -12,11 +12,11 @@ export class UserListComponent implements OnInit {
     {
       firstname: 'saban',
       lastname : 'ünlü'
-    },
+    }/*,
     {
       firstname: 'peter',
       lastname : 'müller'
-    }
+    }*/
   ];
   selectedUser: User;
 
