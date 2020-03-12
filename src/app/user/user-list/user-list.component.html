@@ -1,3 +1,7 @@
 <p>user-list works!</p>
-<cis-user-list-item></cis-user-list-item>
-<button>noch ein button</button>
+<cis-user-list-item
+  *ngFor="let user of userList">
+
+  {{user | json}}
+
+</cis-user-list-item>
