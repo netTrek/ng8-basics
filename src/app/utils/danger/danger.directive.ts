@@ -1,17 +1,13 @@
-import { Directive, ElementRef, EventEmitter, HostBinding, HostListener, Output, Renderer2 } from '@angular/core';
-import { isCombinedModifierFlagSet } from 'tslint';
+import { Directive, EventEmitter, HostBinding, HostListener, Output } from '@angular/core';
 
 @Directive ( {
   selector: 'button[cisDanger], a[cisDanger]'
 } )
 export class DangerDirective {
-
   @HostBinding ( 'style.backgroundColor' )
   backgroundColor = 'red';
-
   @HostBinding ( 'style.fontWeight' )
   fontWeight = 'bolder';
-
   @Output ()
   confirmed: EventEmitter<undefined> = new EventEmitter<undefined> ();
 

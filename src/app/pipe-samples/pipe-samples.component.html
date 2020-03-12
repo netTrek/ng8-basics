@@ -1,0 +1,28 @@
+<p>pipe-samples works!</p>
+
+<ul>
+  <li>{{date}}</li>
+  <li>{{date | date}}</li>
+  <li>{{date | date : 'MM/yyyy' }}</li>
+  <li>{{date | date : 'long' }}</li>
+  <li>{{date | date : 'long' : '+0900' }}</li>
+  <li>{{date | date : 'long' : '+0900' : 'de'}}</li>
+</ul>
+
+
+<ul>
+  <li>{{num}}</li>
+  <li>{{num | number}}</li>
+  <li>{{num | number : '3.5' }}</li>
+  <li>{{num | number : '3.2-5' }}</li>
+  <li>{{1 | number : '3.2-5' : 'de' }}</li>
+  <li>{{100000000 | number : '3.2-5' : 'de' }}</li>
+</ul>
+
+
+<hr>
+
+<ul>
+  <li>{{str}}</li>
+  <li>{{str | uppercase}}</li>
+</ul>

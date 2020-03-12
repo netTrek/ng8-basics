@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
+import { Observable } from 'rxjs';
 
 @Component ( {
   selector   : 'cis-user-list',
@@ -19,6 +20,7 @@ export class UserListComponent implements OnInit {
     }
   ];
   selectedUser: User;
+  obs: Observable<any>;
 
   constructor() {
   }
