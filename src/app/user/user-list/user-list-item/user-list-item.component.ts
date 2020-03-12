@@ -1,4 +1,15 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  HostBinding,
+  HostListener,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChange,
+  SimpleChanges
+} from '@angular/core';
 import { User } from '../../user';
 
 @Component ( {
@@ -7,6 +18,11 @@ import { User } from '../../user';
   styleUrls  : ['./user-list-item.component.scss']
 } )
 export class UserListItemComponent implements OnInit, OnChanges {
+
+  @Input ()
+  @HostBinding ( 'class.selected' )
+  isSelected = false;
+
   @Input ()
   user: User;
 
@@ -20,8 +36,11 @@ export class UserListItemComponent implements OnInit, OnChanges {
   ngOnInit(): void {
   }
 
+  // @HostListener('click', ['$event'])
+  @HostListener ( 'click' )
   select() {
     this.selectUser.emit ( this.user );
+    this.isSelected = true;
   }
 
   ngOnChanges( changes: SimpleChanges ): void {

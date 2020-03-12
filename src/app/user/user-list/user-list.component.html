@@ -2,7 +2,7 @@
 <cis-user-list-item
   (selectUser)="selectUsr( user )"
   *ngFor="let user of userList"
-  [class.selected]="user === selectedUser"
+  [isSelected]="user === selectedUser"
   [user]="user"
 >
 </cis-user-list-item>
