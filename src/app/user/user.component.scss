@@ -1,0 +1,17 @@
+/*
+::ng-deep button { // ng-deep hebelt attribute aus
+  background-color: red;
+}
+*/
+:host {
+  ::ng-deep button { // ng-deep hebelt attribute aus
+    background-color: red;
+  }
+
+}
+/*
+
+button { // ng-deep hebelt attribute aus
+  background-color: red;
+}
+*/
