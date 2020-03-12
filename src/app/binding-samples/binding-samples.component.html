@@ -1,8 +1,15 @@
 <p>binding-samples works!</p>
 
-<div>das ist das bild das angezegt wird {{img}}</div>
+<ul>
+  <li *ngFor="let user of list">{{ user | json}}</li>
+</ul>
+
+<div class="red-font">das ist das bild das angezegt wird {{img}}</div>
+<div [class]="classList">{{classList}}</div>
+
+<div (click)="toggle()" [class.bold-font]="selected" [class.green-font]="true">green</div>
+
 <div [style.color]="color"
-     [style.width.%]="width"
      style="background-color: gray">{{getInfo(123, img)}}</div>
 
 <div [attr.aria-label]="forScreenReader" [innerHTML]="html"></div>

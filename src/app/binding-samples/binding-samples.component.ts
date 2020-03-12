@@ -15,9 +15,17 @@ export class BindingSamplesComponent implements OnInit {
   forScreenReader = 'hallo ich werde gelesen vom SCreenReader';
   color           = 'red';
   width           = 100;
+  classList       = 'green-font bold-font';
+  selected        = false;
+  list            = [{ name: 'saban', age: 44 },
+                     { name: 'peter', age: 33 }
+  ];
   private intervalID: number;
 
   constructor() {
+    for ( const user of this.list ) {
+      console.log ( user );
+    }
   }
 
   ngOnInit(): void {
@@ -35,5 +43,9 @@ export class BindingSamplesComponent implements OnInit {
 
   getInfo( num: number, img: string ): string {
     return 'ich bin eine Info';
+  }
+
+  toggle() {
+    this.selected = !this.selected;
   }
 }
