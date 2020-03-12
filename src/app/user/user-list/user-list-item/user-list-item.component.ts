@@ -7,9 +7,17 @@ import { User } from '../../user';
   styleUrls  : ['./user-list-item.component.scss']
 } )
 export class UserListItemComponent implements OnInit {
+  private _user: User;
+
+  get user(): User {
+    return this._user;
+  }
 
   @Input ()
-  user: User;
+  set user( value: User ) {
+    console.log ( 'new user is := ', value );
+    this._user = value;
+  }
 
   @Output ()
   selectUser: EventEmitter<User> =
