@@ -14,7 +14,7 @@ export class CountdownComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.intervalID = setInterval ( () => {
+    this.intervalID = window.setInterval ( () => {
       this.percent -= 5;
       if ( this.percent === 0 ) {
         this.killInterval ();

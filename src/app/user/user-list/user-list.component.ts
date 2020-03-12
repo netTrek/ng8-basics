@@ -29,4 +29,8 @@ export class UserListComponent implements OnInit {
   selectUsr( user: User ) {
     this.selectedUser = user;
   }
+
+  delLast() {
+    this.userList.pop ();
+  }
 }

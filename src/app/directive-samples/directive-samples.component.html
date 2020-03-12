@@ -1,5 +1,14 @@
 <p>directive-samples works!</p>
 
+<ul>
+  <li
+    *ngFor="let num of [1,2,3,4,5]; index as i; even as e; odd as o"
+    [ngClass]="{even: e, odd: o}"
+    class="saban"
+  >
+    {{i}} # {{num}}
+  </li>
+</ul>
 
 <button (click)="toggle()">toggle show</button>
 <img *ngIf="show; else elseCase" alt="cat"

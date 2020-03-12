@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls  : ['./directive-samples.component.scss']
 } )
 export class DirectiveSamplesComponent implements OnInit {
-  show = true;
+  show      = true;
+  classList = 'peter frank';
 
   constructor() {
   }
