@@ -1,0 +1,20 @@
+<p>binding-samples works!</p>
+
+<div>das ist das bild das angezegt wird {{img}}</div>
+<div [style.color]="color"
+     [style.width.%]="width"
+     style="background-color: gray">{{getInfo(123, img)}}</div>
+
+<div [attr.aria-label]="forScreenReader" [innerHTML]="html"></div>
+
+<img alt="cat1" src="./assets/img/cat1.jpeg" width="20%">
+
+
+<ul>
+  <li>{{img}}</li>
+  <li>{{imgPath}}</li>
+  <li>{{imgWithPath}}</li>
+</ul>
+<img (click)="chgImg()" alt="{{img}}" src="{{imgPath}}/{{img}}" width="20%">
+<img [src]="imgWithPath" alt="{{img}}" width="20%">
+<img [attr.src]="imgWithPath" alt="{{img}}" width="20%">
