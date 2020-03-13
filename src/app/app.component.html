@@ -1,5 +1,8 @@
 <h1>{{title}}</h1>
+
+<!--
 <button (click)="changeName()">chg</button>
+-->
 
 
 <div *ngIf="$error.error$ | async as errMsg " class="error-box">{{errMsg}}</div>
@@ -7,8 +10,8 @@
 <cis-countdown></cis-countdown>
 <cis-countdown style="width: 100px"></cis-countdown>
 <cis-countdown style="width: 50%"></cis-countdown>
--->
 <cis-user></cis-user>
+-->
 
 <!--
 <cis-pipe-samples></cis-pipe-samples>
@@ -16,4 +19,12 @@
 <cis-binding-samples></cis-binding-samples>
 -->
 
+<nav>
+  <a routerLink="home">home</a>
+  |
+  <a routerLink="user">user</a>
+</nav>
+
 <router-outlet></router-outlet>
+
+<footer>netTrek</footer>

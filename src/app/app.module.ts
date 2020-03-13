@@ -14,6 +14,7 @@ import { registerLocaleData } from '@angular/common';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppAuthInterceptorService } from './app-auth-interceptor.service';
 import { AppErrorInterceptorService } from './app-error-interceptor.service';
+import { HomeModule } from './home/home.module';
 
 registerLocaleData ( localeDE );
 
@@ -29,7 +30,8 @@ registerLocaleData ( localeDE );
     BindingSamplesModule,
     UtilsModule,
     DirectiveSamplesModule,
-    PipeSamplesModule
+    PipeSamplesModule,
+    HomeModule
   ],
   providers   : [
     { provide: LOCALE_ID, useValue: 'de' },
