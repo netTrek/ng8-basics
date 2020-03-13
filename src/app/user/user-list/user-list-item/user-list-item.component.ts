@@ -51,7 +51,7 @@ export class UserListItemComponent implements OnInit, OnChanges {
     if ( changes.hasOwnProperty ( 'user' ) ) {
       const userPayload: SimpleChange = changes.user;
       if ( userPayload.firstChange ) {
-        console.log ( 'first', userPayload.currentValue );
+        // console.log ( 'first', userPayload.currentValue );
       }
     }
   }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
-import { Observable } from 'rxjs';
+import { UserService } from '../user.service';
 
 @Component ( {
   selector   : 'cis-user-list',
@@ -9,20 +9,9 @@ import { Observable } from 'rxjs';
 } )
 export class UserListComponent implements OnInit {
 
-  userList: User[] = [
-    {
-      firstname: 'saban',
-      lastname : 'ünlü'
-    },
-    {
-      firstname: 'peter',
-      lastname : 'müller'
-    }
-  ];
   selectedUser: User;
-  obs: Observable<any>;
 
-  constructor() {
+  constructor( public $user: UserService ) {
   }
 
   ngOnInit(): void {
@@ -33,6 +22,20 @@ export class UserListComponent implements OnInit {
   }
 
   delLast() {
-    this.userList.pop ();
+    this.$user.delLast ();
+    this.selectedUser = undefined;
+  }
+
+  add() {
+    this.selectedUser = this.$user.add (
+      { firstname: 'frank', lastname: 'meyer' }
+    );
+  }
+
+  update() {
+    this.selectedUser = this.$user.update (
+      this.$user.userList[ 0 ],
+      { firstname: 'neu' }
+    );
   }
 }

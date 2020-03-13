@@ -1,11 +1,12 @@
 <p>user-list works!</p>
 <cis-user-list-item
   (selectUser)="selectUsr( user )"
-  *ngFor="let user of userList | reverse"
+  *ngFor="let user of $user.userList"
   [isSelected]="user === selectedUser"
   [user]="user"
 >
 </cis-user-list-item>
 
-
+<button (click)="add()">add test</button>
+<button (click)="update()">update test</button>
 <button (confirmed)="delLast()" cisDanger>delete last user</button>
