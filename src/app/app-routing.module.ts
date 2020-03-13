@@ -21,6 +21,7 @@ const routes: Routes = [
       { path: 'edit', component: UserEditComponent }
     ]
   },
+  { path: 'dash', loadChildren: () => import('./dash/dash.module').then ( m => m.DashModule ) },
   { path: '**', component: NotFoundComponent }
 ];
 
