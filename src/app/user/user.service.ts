@@ -50,7 +50,7 @@ export class UserService {
       this.userList[ ind ] = updatedUsr;
       return updatedUsr;
     }
-    throw new Error ( 'no user foud to update' );
+    throw new Error ( 'no user found to update' );
   }
 
 }
