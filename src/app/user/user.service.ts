@@ -19,6 +19,10 @@ export class UserService {
     return this.del ( this.userList[ this.userList.length - 1 ] );
   }
 
+  getUsrById( id: number ): Observable<User> {
+    return this.$http.get<User> ( environment.api + id );
+  }
+
   add( user: User ): Observable<User> {
     return this.$http.post<User> (
       environment.api, user
