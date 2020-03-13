@@ -7,6 +7,7 @@ import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { UserContractsComponent } from './user/user-detail/user-contracts/user-contracts.component';
 import { UserEditComponent } from './user/user-detail/user-edit/user-edit.component';
 import { UserDetailResolveService } from './user/user-detail/user-detail-resolve.service';
+import { DashGuard } from './dash/dash.guard';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -21,7 +22,11 @@ const routes: Routes = [
       { path: 'edit', component: UserEditComponent }
     ]
   },
-  { path: 'dash', loadChildren: () => import('./dash/dash.module').then ( m => m.DashModule ) },
+  {
+    path        : 'dash',
+    loadChildren: () => import('./dash/dash.module').then ( m => m.DashModule ),
+    canActivate : [DashGuard]
+  },
   { path: '**', component: NotFoundComponent }
 ];
 

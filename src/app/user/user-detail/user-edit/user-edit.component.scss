@@ -1,0 +1,7 @@
+input {
+  width: 100%;
+
+  &.ng-dirty.ng-invalid {
+    border: 1px solid red;
+  }
+}

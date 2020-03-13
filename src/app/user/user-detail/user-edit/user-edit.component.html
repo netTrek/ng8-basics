@@ -1,1 +1,14 @@
 <p>user-edit works!</p>
+<form #myForm='ngForm' (ngSubmit)="update( myForm.value )">
+  <input #firstname='ngModel' [ngModel]="userDetail.user.firstname" name="firstname"
+         placeholder="firstname" required type="text">
+  <div *ngIf="firstname.errors && firstname.dirty">
+    <span *ngIf="firstname.errors?.required">Bitte trage einen namen ein</span>
+  </div>
+  <input #lastname='ngModel' [ngModel]="userDetail.user.lastname" name="lastname"
+         ngModel placeholder="lastname" type="text">
+  <input #age='ngModel' [ngModel]="userDetail.user.age" name="age"
+         ngModel placeholder="age" type="number">
+  <button [disabled]="myForm.invalid" type="submit">submit</button>
+  <button [disabled]="myForm.pristine" type="reset">reset</button>
+</form>

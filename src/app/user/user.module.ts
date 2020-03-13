@@ -8,6 +8,7 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { RouterModule } from '@angular/router';
 import { UserContractsComponent } from './user-detail/user-contracts/user-contracts.component';
 import { UserEditComponent } from './user-detail/user-edit/user-edit.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule ( {
   declarations: [UserComponent,
@@ -20,7 +21,8 @@ import { UserEditComponent } from './user-detail/user-edit/user-edit.component';
   imports     : [
     CommonModule,
     UtilsModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ],
   exports     : [
     UserComponent
