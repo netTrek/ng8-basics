@@ -39,9 +39,12 @@ export class UserListComponent implements OnInit {
   }
 
   update() {
-    this.selectedUser = this.$user.update (
+    this.$user.update (
       this.$user.userList[ 0 ],
-      { firstname: 'neu' }
-    );
+      { firstname: 'neu' + Date.now () }
+    )
+        .subscribe (
+          next => this.selectedUser = next
+        );
   }
 }

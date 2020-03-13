@@ -2,7 +2,7 @@
   "users": [
     {
       "id": 1,
-      "firstname": "Mackenzie",
+      "firstname": "neu1584097147242",
       "lastname": "Hodges",
       "age": 19
     },
@@ -112,16 +112,6 @@
       "firstname": "frank",
       "lastname": "meyer",
       "id": 20
-    },
-    {
-      "firstname": "frank1584096321136",
-      "lastname": "meyer",
-      "id": 21
-    },
-    {
-      "firstname": "frank1584096396161",
-      "lastname": "meyer",
-      "id": 22
     }
   ]
 }

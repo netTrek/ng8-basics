@@ -39,14 +39,11 @@ export class UserService {
     firstname?: string,
     lastname?: string,
     age?: number
-  } ): User {
-    const ind = this.userList.indexOf ( user );
-    if ( ind !== - 1 ) {
-      const updatedUsr     = { ...user, ...newValues };
-      this.userList[ ind ] = updatedUsr;
-      return updatedUsr;
-    }
-    throw new Error ( 'no user found to update' );
+  } ): Observable<User> {
+    const updatedUsr = { ...user, ...newValues };
+    return this.$http
+               .put<User> ( environment.api + updatedUsr.id, updatedUsr )
+               .pipe ( tap ( n => this.updateUserList () ) );
   }
 
   updateUserList() {
