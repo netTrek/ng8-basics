@@ -2,6 +2,13 @@
 body {
   // background-color: red;
 }
+
 button {
   background-color: chartreuse;
+}
+
+button, a {
+  &.active {
+    font-weight: bold;
+  }
 }
