@@ -11,6 +11,7 @@ import { PipeSamplesModule } from './pipe-samples/pipe-samples.module';
 
 import localeDE from '@angular/common/locales/de';
 import { registerLocaleData } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 registerLocaleData ( localeDE );
 
@@ -20,6 +21,7 @@ registerLocaleData ( localeDE );
   ],
   imports     : [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     UserModule,
     BindingSamplesModule,

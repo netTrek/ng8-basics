@@ -1,22 +1,18 @@
 import { Injectable } from '@angular/core';
 import { User } from './user';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
+import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Injectable ( {
   providedIn: 'root'
 } )
 export class UserService {
-  userList: User[] = [
-    {
-      firstname: 'saban',
-      lastname : 'ünlü'
-    },
-    {
-      firstname: 'peter',
-      lastname : 'müller'
-    }
-  ];
+  userList: User[] = [];
 
-  constructor() {
+  constructor( private $http: HttpClient ) {
+    this.init ();
   }
 
   delLast(): boolean {
@@ -25,9 +21,13 @@ export class UserService {
     );
   }
 
-  add( user: User ): User {
-    this.userList.push ( user );
-    return user;
+  add( user: User ): Observable<User> {
+    return this.$http.post<User> (
+      environment.api, user
+    )
+               .pipe (
+                 tap ( next => this.updateUserList () )
+               );
   }
 
   del( user: User ): boolean {
@@ -53,4 +53,15 @@ export class UserService {
     throw new Error ( 'no user found to update' );
   }
 
+  updateUserList() {
+    this.$http.get<User[]> ( environment.api )
+        .subscribe (
+          next => this.userList = next
+        )
+    ;
+  }
+
+  private init() {
+    this.updateUserList ();
+  }
 }

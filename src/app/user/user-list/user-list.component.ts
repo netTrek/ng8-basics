@@ -27,9 +27,15 @@ export class UserListComponent implements OnInit {
   }
 
   add() {
-    this.selectedUser = this.$user.add (
-      { firstname: 'frank', lastname: 'meyer' }
-    );
+    this.$user.add (
+      {
+        firstname: 'frank' + Date.now (),
+        lastname : 'meyer'
+      }
+    )
+        .subscribe (
+          next => this.selectedUser = next
+        );
   }
 
   update() {
