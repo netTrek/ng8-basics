@@ -6,12 +6,16 @@ import { UserListItemComponent } from './user-list/user-list-item/user-list-item
 import { UtilsModule } from '../utils/utils.module';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { RouterModule } from '@angular/router';
+import { UserContractsComponent } from './user-detail/user-contracts/user-contracts.component';
+import { UserEditComponent } from './user-detail/user-edit/user-edit.component';
 
 @NgModule ( {
   declarations: [UserComponent,
                  UserListComponent,
                  UserListItemComponent,
-                 UserDetailComponent
+                 UserDetailComponent,
+                 UserContractsComponent,
+                 UserEditComponent
   ],
   imports     : [
     CommonModule,
