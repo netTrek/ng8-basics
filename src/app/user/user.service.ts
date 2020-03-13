@@ -15,10 +15,8 @@ export class UserService {
     this.init ();
   }
 
-  delLast(): boolean {
-    return this.del (
-      this.userList[ this.userList.length - 1 ]
-    );
+  delLast(): Promise<void> {
+    return this.del ( this.userList[ this.userList.length - 1 ] );
   }
 
   add( user: User ): Observable<User> {
@@ -30,13 +28,11 @@ export class UserService {
                );
   }
 
-  del( user: User ): boolean {
-    const ind = this.userList.indexOf ( user );
-    if ( ind !== - 1 ) {
-      this.userList.splice ( ind, 1 );
-      return true;
-    }
-    return false;
+  del( user: User ): Promise<void> {
+
+    return this.$http.delete<void> ( environment.api + user.id )
+               .pipe ( tap ( n => this.updateUserList () ) )
+               .toPromise ();
   }
 
   update( user: User, newValues: {
