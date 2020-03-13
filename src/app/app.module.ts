@@ -11,7 +11,9 @@ import { PipeSamplesModule } from './pipe-samples/pipe-samples.module';
 
 import localeDE from '@angular/common/locales/de';
 import { registerLocaleData } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { AppAuthInterceptorService } from './app-auth-interceptor.service';
+import { AppErrorInterceptorService } from './app-error-interceptor.service';
 
 registerLocaleData ( localeDE );
 
@@ -30,7 +32,9 @@ registerLocaleData ( localeDE );
     PipeSamplesModule
   ],
   providers   : [
-    { provide: LOCALE_ID, useValue: 'de' }
+    { provide: LOCALE_ID, useValue: 'de' },
+    { provide: HTTP_INTERCEPTORS, useClass: AppAuthInterceptorService, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: AppErrorInterceptorService, multi: true }
   ],
   bootstrap   : [AppComponent]
 })

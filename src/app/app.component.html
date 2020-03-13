@@ -1,5 +1,8 @@
 <h1>{{title}}</h1>
 <button (click)="changeName()">chg</button>
+
+
+<div *ngIf="$error.error$ | async as errMsg " class="error-box">{{errMsg}}</div>
 <!--
 <cis-countdown></cis-countdown>
 <cis-countdown style="width: 100px"></cis-countdown>

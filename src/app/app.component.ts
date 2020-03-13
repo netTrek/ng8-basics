@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AppErrorService } from './app-error.service';
 
 @Component ( {
   selector   : 'cis-root',
@@ -7,6 +8,9 @@ import { Component } from '@angular/core';
 } )
 export class AppComponent {
   title = 'softconcis';
+
+  constructor( public $error: AppErrorService ) {
+  }
 
   changeName() {
     this.title = 'saban';
