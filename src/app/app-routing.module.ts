@@ -6,6 +6,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { UserContractsComponent } from './user/user-detail/user-contracts/user-contracts.component';
 import { UserEditComponent } from './user/user-detail/user-edit/user-edit.component';
+import { UserDetailResolveService } from './user/user-detail/user-detail-resolve.service';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'user', component: UserComponent },
   {
     path    : 'user/:id', component: UserDetailComponent,
+    resolve : { user: UserDetailResolveService },
     children: [
       { path: '', pathMatch: 'full', redirectTo: 'contracts' },
       { path: 'contracts', component: UserContractsComponent },

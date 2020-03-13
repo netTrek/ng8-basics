@@ -10,32 +10,14 @@ import { User } from '../user';
   styleUrls  : ['./user-detail.component.scss']
 } )
 export class UserDetailComponent implements OnInit {
-  userId: number;
   user: User;
 
-  constructor( private $route: ActivatedRoute,
-               private $user: UserService ) {
+  constructor( private $route: ActivatedRoute ) {
   }
 
   ngOnInit(): void {
-    this.$route.paramMap
-        .pipe (
-          map ( pMap => + pMap.get ( 'id' ) ),
-          tap ( n => this.userId = n ),
-          switchMap ( id => this.$user.getUsrById ( id ) )
-        )
+    this.$route.data.pipe ( map ( data => data.user as User ) )
         .subscribe ( user => this.user = user );
-    /*
-        .pipe (
-          map ( pMap => + pMap.get ( 'id' ) )
-        )
-        .subscribe ( n => {
-          this.userId = n;
-          this.$user.getUsrById( n ).subscribe(
-            u => this.user = u
-          );
-        });
-    */
   }
 
 }
